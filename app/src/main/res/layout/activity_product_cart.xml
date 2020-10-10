@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".productcart.activity.ProductAddCartActivity">
+
+    <RelativeLayout
+        android:id="@+id/RelativeTotalRelated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin15dp"
+        android:padding="@dimen/margin5dp">
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/TxtSubTotalItemCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:textColor="@color/black"
+            android:text="Subtotal ( 1 items ) : "
+            android:textSize="@dimen/textsize16sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/TxtTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/TxtSubTotalItemCount"
+            android:text="12999"
+            android:textColor="@color/green"
+            android:textSize="@dimen/textsize16sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/Txtdeleverymessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtTotalAmount"
+
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:text="Your order is eligible for FREE Delivery"
+            android:textSize="@dimen/textsize14sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/TxtProceedToPay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_below="@+id/Txtdeleverymessage"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Proceed to Buy"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecycleviewCartData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/RelativeTotalRelated"
+        android:padding="@dimen/margin10dp" />
+
+    <RelativeLayout
+        android:id="@+id/RelativeNotItemData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margin10dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ImageNoImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:src="@drawable/emptycart" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ImageNoImage"
+            android:layout_margin="@dimen/margin10dp"
+            android:gravity="center"
+            android:padding="@dimen/margin10dp"
+            android:text="Sorry no record found, try after some time..!!"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textsize18sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin5dp"
+        android:orientation="vertical"
+        android:padding="@dimen/margin5dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ProfileImage"
+            android:layout_width="120dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="1dp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/TXtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textsize18sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtCeoName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="@dimen/textsize16sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtOrgnisationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="@dimen/textsize16sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TXtCertificateAgencyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:gravity="center"
+            android:text="" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtStory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:gravity="center"
+            android:text="" />
+
+        <LinearLayout
+            android:id="@+id/LinearDataExtra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtSubcategoty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtBrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:id="@+id/LinarProductDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:orientation="vertical">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TXTMAINProductDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Details"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize14sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecycleviewProductDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:background="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearCropInspectionDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:orientation="vertical">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TXTMAINCropInspectionDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:text="Crop Inspection Details"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize14sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecycleviewCropInspectionDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:background="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearInputOrganicDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:layout_marginBottom="@dimen/margin10dp"
+            android:orientation="vertical">
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TXTMAINInputOrganicDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:text="Input Organic Details"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize14sp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecycleviewInputOrganicDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:background="@color/black" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearsoilDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:layout_marginBottom="@dimen/margin10dp"
+            android:orientation="vertical">
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtMainSoilDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:text="Soil Details "
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize14sp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecycleviewsoilDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:background="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearmicronutrientDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:layout_marginBottom="@dimen/margin10dp"
+            android:orientation="vertical">
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtMainmicronutrientDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:text="Micro Nutrient "
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize14sp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecycleviewmicronutrientDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:background="@color/black" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

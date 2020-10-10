@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin10dp">
+
+    <Button
+        android:id="@+id/TxtAplyBid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/margin5dp"
+        android:text="Apply Bid"
+        android:textColor="@color/white" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:id="@+id/TxtProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize16sp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:id="@+id/tt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtOtherDetails"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:padding="@dimen/margin5dp"
+        android:text="Bid Details"
+        android:textSize="@dimen/textsize18sp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+        android:id="@+id/EditAmount"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin50dp"
+        android:layout_below="@+id/tt"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:background="@drawable/background"
+        android:hint=" Enter Amount"
+        android:inputType="number"
+        android:maxLength="6"
+        android:padding="@dimen/margin5dp"
+        android:textSize="@dimen/textsize16sp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+        android:id="@+id/EditCommit"
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin50dp"
+        android:layout_below="@+id/EditAmount"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:background="@drawable/background"
+        android:hint=" Enter Comment"
+        android:padding="@dimen/margin5dp"
+        android:textSize="@dimen/textsize16sp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtQuality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtProductName"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtValidForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtQuality"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtValidTO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtQuality"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtExpectedRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtValidForm"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtValidForm"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtExpectedRate"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtAddress"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtPaymnetTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtQuantity"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtCertification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtPaymnetTerms"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtOtherDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtCertification"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:padding="@dimen/margin5dp" />
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="usertypeCaps">
+        <item>Select User Type</item>
+        <item>FARMER</item>
+        <item>FPO</item>
+        <item>TRADER</item>
+        <item>PROFESSOR</item>
+        <item>BUYER</item>
+        <item>ORGANIC CONSAULTANT</item>
+        <item>NGO</item>
+        <item>RESTAURANTS</item>
+        <item>CERTIFICATION AGENCIES</item>
+        <item>INSTITUTION</item>
+        <item>GOVERNMENT AGENCIES</item>
+        <item>LABS</item>
+        <item>SHOPS</item>
+        <item>EXIBUTOR</item>
+        <item>FARM EQUIPMENT</item>
+        <item>LOGISTICS</item>
+        <item>PACKAGING</item>
+        <item>ORGANIC INPUT</item>
+
+    </string-array>
+    <string-array name="usertype">
+        <item>Select User Type</item>
+        <item>Farmer</item>
+        <item>Fpo</item>
+        <item>Trader</item>
+        <item>Professor</item>
+        <item>Buyer</item>
+        <item>Organic Counsaltant</item>
+        <item>Ngo</item>
+        <item>Restaurant</item>
+        <item>Certification Agencies</item>
+        <item>Institution</item>
+        <item>Government Agencies</item>
+        <item>Lab</item>
+        <item>Shop</item>
+        <item>Exibutor</item>
+        <item>Farm Equipment</item>
+        <item>Logistics</item>
+        <item>Packaging</item>
+        <item>Organic Input</item>
+    </string-array>
+    <string-array name="selectlogicalrequirment">
+        <item>Logistic Required</item>
+        <item>YES</item>
+        <item>NO</item>
+    </string-array>
+    <string-array name="selectcertificatio">
+        <item>Select Certification</item>
+        <item>NPOP</item>
+        <item>NOP</item>
+        <item>PGS</item>
+        <item>ACOS</item>
+        <item>EU</item>
+    </string-array>
+    <string-array name="selectproduct">
+        <item>Select Product</item>
+        <item>Bajra Flour</item>
+        <item>Besan Flour</item>
+        <item>Chia Seeds</item>
+        <item>Chilli Powder</item>
+    </string-array>
+
+</resources>

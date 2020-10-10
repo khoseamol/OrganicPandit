@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Organicpandit</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="history">History</string>
+    <string name="Product">Product</string>
+    <string name="Rs">\u20B9</string>
+    <string name="app_aboutusheding">A Chinese proverb \"If you are planning for a year, sow rice; if you are planning for a decade, plant trees; if you are planning for a lifetime, educate people\" When people believe and drive a thinking, it leads to bring transformation in the community. We at Organic Pandit strongly believe and thus build up this global platform to unite every individual who is contributing in this Organic Food Sector.</string>
+    <string name="app_ourstory">We are small but robust group founded by Prashanth Patil, everyone with different sector but with same goal and passion driven to work in Organic Food Industry. At Organic Pandit, the team had been intensely studying and working in the Organic Food sector since 3 years with different stake holders in this chain, beginning from the Organic farmers, FPOs, Agri i/ps, agri o/ps, traders, processors, consultants, retailers, brands, exporters and newcomers in this field.</string>
+    <string name="app_aim">At Organic Pandit we aim to provide you global platform exclusively for Organic Industry where every business entity would be able to find right people for their successful business transactions ex: every organic farmer/producer/supplier should get visibility of his product to the potential business clients across the world.</string>
+    <string name="app_challenges">Considering all these players in Organic Industry and various challenges they are facing like to connect with right people with right knowledge to complete the right process in required time frame. Even the cost incurred in business supporting activities is very high and thus so we aimed to utilise our strength and skills to solve this one of the biggest problem in organic food market One of the major challenge is Traceability and Accountability of the Organic food. This platform enables to trace certifications, test reports and right processes.</string>
+    <string name="app_benefits">The Organic Food Industry is growing at very faster pace but at the same time this growth needs to be sustainable, through this platform it will be easy to approach to people across the world working for the same interest.</string>
+
+    <string name="tap_to_reload">Tap to reload</string>
+    <string name="menu_refresh">Refresh</string>
+
+    <string name="error_msg">Sorry! Couldn\'t fetch data.</string>
+    <string name="btn_retry">Retry</string>
+
+    <string name="error_msg_no_internet">Not connected to internet</string>
+    <string name="error_msg_timeout">The server took too long to respond</string>
+    <string name="error_msg_unknown">An unexpected error occurred</string>
+</resources>

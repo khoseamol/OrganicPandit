@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ImageProduct"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rectangle_background"
+            android:padding="@dimen/margin5dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="@dimen/margin_4dp"
+            android:layout_toRightOf="@+id/ImageProduct"
+            android:text="ImageProduct" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_below="@+id/TxtBrand"
+            android:layout_marginLeft="@dimen/margin_4dp"
+            android:layout_toRightOf="@+id/ImageProduct"
+            android:text="ImageProduct" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtQualntity"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_below="@+id/TxtProductPrice"
+            android:layout_marginLeft="@dimen/margin_4dp"
+            android:layout_toRightOf="@+id/ImageProduct"
+            android:text="" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin5dp">
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtValidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019-04-23 - 2019-06-23" />
+
+    </RelativeLayout>
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Local" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtQuality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin5dp"
+        android:text="@string/app_name" />
+
+
+</LinearLayout>

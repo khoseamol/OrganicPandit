@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin1dp"
+    android:orientation="vertical"
+    android:padding="@dimen/margin15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/txt_dia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Send Enquiry"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textsize18sp"
+
+            android:textStyle="bold" />
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Product Name : Clove Clovee"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize14sp" />
+
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Quantity (in Kg) : 500 "
+
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize14sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Total Price : 500 "
+
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize14sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Expected Price (per Kg) : 98798798 "
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize14sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Delivery Location : Pune, Maharastra, 414102"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize14sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="Category Name : Spices"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize14sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+            android:id="@+id/EditDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:background="@drawable/background"
+            android:gravity="top"
+            android:hint="Description"
+            android:lines="5"
+            android:padding="@dimen/margin10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </LinearLayout>
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldButton
+        android:id="@+id/BtnSend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin15dp"
+        android:background="@color/colorAccent"
+        android:text="Send"
+        android:textColor="@color/white" />
+
+
+
+
+</LinearLayout>

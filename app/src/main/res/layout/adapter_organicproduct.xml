@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ImageOranicProduct"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+
+        <LinearLayout
+            android:id="@+id/LinAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ImageOranicProduct"
+            android:weightSum="2">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:layout_weight="1.6"
+                android:paddingLeft="@dimen/margin_4dp"
+                android:textColor="@color/green" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TXtAddToCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:layout_weight="0.4"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:padding="@dimen/margin7dp"
+                android:paddingLeft="@dimen/margin_4dp"
+                android:text="ADD"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LinAdd"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtCateory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/margin5dp"
+                android:text="Organic Farming"
+                android:textColor="@color/black" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="NA"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtSubCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linn"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:text="Integrated Pest Management" />
+
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtWeight"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtSubCategory"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:text="Quantity : 500 kg" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtDosage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtSubCategory"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="Dosage1" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtSpectrum"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtWeight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="Spectrum" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtApplicableCrops"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtSpectrum"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:text="Spectrum" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtCompatibility"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtApplicableCrops"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:text="Compatibility" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtDurationof_Effect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtApplicableCrops"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="Compatibility" />
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtFrequencyof_Application"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:layout_below="@+id/TxtCompatibility"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="Compatibility" />
+
+
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtFinalRemarks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtFrequencyof_Application"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:padding="@dimen/margin_4dp"
+            android:text="cleaned sortex material, moisture not more than 12%, light brown colour" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/TxtFinalRemarks"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:background="@color/black" />
+    </RelativeLayout>
+</RelativeLayout>

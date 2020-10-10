@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin5dp"
+    android:orientation="vertical"
+    android:padding="@dimen/margin10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delivery Address"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize18sp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+                android:id="@+id/CheckboxAddress"
+                android:checked="true"
+                android:layout_width="@dimen/margin_30dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_marginTop="@dimen/margin10dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_marginTop="@dimen/margin15dp"
+                android:layout_toRightOf="@+id/CheckboxAddress"
+                android:orientation="vertical">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtHouseNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtStreetName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtStatePin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:text="sfdfdsfdsfd"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:background="@color/gray" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TxtChangeAddress"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin15dp"
+            android:gravity="right"
+            android:text="Change Address"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textsize16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:orientation="vertical">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fare Details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="1.5"
+                    android:text="Total Amount "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtTotalAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="0.5"
+                    android:text=": 1234567"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="1.5"
+                    android:text="Shopping Charges "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:id="@+id/TxtDeliveryCharge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="0.5"
+                    android:text=": 1233"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="1.5"
+                    android:text="Pay Amount "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                    android:id="@+id/TxtPayAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="0.5"
+                    android:text=": 123456789"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/BtnConfirmPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:background="@color/colorAccent"
+            android:minHeight="@dimen/margin40dp"
+            android:text="Confirm &amp; pay"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</RelativeLayout>

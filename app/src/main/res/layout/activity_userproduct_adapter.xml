@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/profilelYOUT"
+            android:layout_width="110dp"
+            android:layout_height="100dp"
+            android:gravity="top">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/ImageUserProfile"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="1dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/Lin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@+id/profilelYOUT"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/margin5dp"
+            android:paddingRight="@dimen/margin5dp"
+            android:weightSum="2">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtUserFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/margin5dp"
+                android:paddingRight="@dimen/margin5dp"
+                android:text="Bell Pepper/Capsicum"
+                android:textColor="@color/colorAccent" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/Txtaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtUserFullName"
+                android:paddingLeft="@dimen/margin5dp"
+                android:paddingTop="@dimen/margin5dp"
+                android:paddingRight="@dimen/margin5dp"
+                android:text="Bell Pepper/Capsicum"
+                android:textColor="@color/black" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/viewonclick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profilelYOUT"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/margin10dp"
+            android:paddingTop="@dimen/margin10dp"
+            android:paddingBottom="@dimen/margin10dp"
+            android:weightSum="4">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtView"
+
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_weight="1.1"
+                android:background="@drawable/rectangle_background"
+                android:gravity="center"
+                android:padding="@dimen/margin5dp"
+                android:text="View"
+                android:textColor="@color/black" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtEnqiry"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_weight="1.1"
+                android:background="@drawable/rectangle_background"
+                android:gravity="center"
+                android:padding="@dimen/margin5dp"
+                android:text="Enqiry"
+                android:textColor="@color/black" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtShop"
+
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_weight="1.1"
+                android:background="@drawable/rectangle_background"
+                android:gravity="center"
+                android:padding="@dimen/margin5dp"
+                android:text="Shop"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_gravity="right"
+                android:layout_weight="0.7"
+                android:src="@drawable/verified" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/viewonclick"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:background="@color/black"></View>
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/RelativeToop"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="@dimen/margin5dp"
+        android:layout_marginRight="@dimen/margin10dp">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtName"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin50dp"
+                android:layout_toLeftOf="@+id/TxtTotalProduct"
+                android:layout_weight="1.5"
+
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize14sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtTotalProduct"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin50dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize14sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/ll"
+            android:background="@color/colorAccent" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/RelativeToop"
+        android:layout_marginTop="@dimen/margin10dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:id="@+id/TxtEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="@dimen/textsize16sp" />
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:layout_width="wrap_content"
+        android:id="@+id/TXtSerchDeal"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imagesearch"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:gravity="center"
+        android:text="Search Deals"
+        android:layout_gravity="center_horizontal"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/black" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imagesearch"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:gravity="center"
+        android:text="Search Deals"
+        android:layout_gravity="center_horizontal"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/black" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imagesearch"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:gravity="center"
+        android:text="Search Deals"
+        android:layout_gravity="center_horizontal"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/black" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imagesearch"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:gravity="center"
+        android:text="Search Deals"
+        android:layout_gravity="center_horizontal"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/black" />
+
+</LinearLayout>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BtnCreatePOst"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/margin5dp"
+        android:layout_marginBottom="@dimen/margin10dp"
+        android:padding="@dimen/margin10dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/faintblack"
+                android:textSize="@dimen/textsize14sp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                    android:id="@+id/EditCompanyName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Name "
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/faintblack"
+                    android:textSize="@dimen/textsize14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:background="@drawable/background">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/SpinnerUserType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:drawSelectorOnTop="true"
+                    android:padding="@dimen/textsize6dp">
+
+                </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/textsize14sp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                    android:id="@+id/Editquality_specification"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Quality Specification"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/faintblack"
+                    android:textSize="@dimen/textsize14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="1"
+
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/textsize14sp">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                        android:id="@+id/EditFromDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="From Date"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:focusableInTouchMode="false"
+                        android:textColor="@color/faintblack"
+                        android:textSize="@dimen/textsize14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/textsize14sp">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                        android:id="@+id/EditToDate"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="To Date"
+                        android:clickable="false"
+                        android:focusable="false"
+                         android:focusableInTouchMode="false"
+
+                        android:singleLine="true"
+                        android:textColor="@color/faintblack"
+                        android:textSize="@dimen/textsize14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/textsize14sp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                    android:id="@+id/Editprice"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Expected Rate (per kg)"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/faintblack"
+                    android:textSize="@dimen/textsize14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/textsize14sp">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                        android:id="@+id/EDitquantity"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity (in kg)"
+
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="@color/faintblack"
+                        android:textSize="@dimen/textsize14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/textsize14sp">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                        android:id="@+id/EditToatalPrice"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Total Price : "
+                        android:singleLine="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:inputType="number"
+                        android:focusableInTouchMode="false"
+
+                        android:textColor="@color/faintblack"
+                        android:textSize="@dimen/textsize14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/textsize14sp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                    android:id="@+id/Editdelivery_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Delivery Address"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/faintblack"
+                    android:textSize="@dimen/textsize14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/textsize14sp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                    android:id="@+id/Editdelivery_Pincode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pincode"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:maxLength="6"
+                    android:textColor="@color/faintblack"
+                    android:textSize="@dimen/textsize14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/textsize14sp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                    android:id="@+id/Editdelivery_PayemtTearms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Payment terms"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/faintblack"
+                    android:textSize="@dimen/textsize14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:background="@drawable/background">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/SpinnerState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/selectlogicalrequirment"
+                    android:padding="@dimen/textsize6dp">
+
+                </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:background="@drawable/background">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/SpinnerCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/selectlogicalrequirment"
+                    android:padding="@dimen/textsize6dp">
+
+                </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:background="@drawable/background">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/Spinnerselectlogicalrequirment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/selectlogicalrequirment"
+                    android:padding="@dimen/textsize6dp">
+
+                </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:background="@drawable/background">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/Spinnerselectcertificatio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/selectcertificatio"
+                    android:padding="@dimen/textsize6dp">
+
+                </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/textsize14sp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                    android:id="@+id/EditOther"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Other Details"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/faintblack"
+                    android:textSize="@dimen/textsize14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldButton
+        android:id="@+id/BtnCreatePOst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin5dp"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/margin10dp"
+        android:text="Create Post"
+        android:textColor="@color/white" />
+</RelativeLayout>

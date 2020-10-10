@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+android:background="@color/faintblack"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin5dp"
+        android:orientation="vertical"
+        android:padding="@dimen/margin5dp">
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtUserTypeName"
+            android:padding="@dimen/margin5dp"
+            android:textSize="@dimen/textsize14sp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trader" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtOrganization"
+            android:textSize="@dimen/textsize14sp"
+            android:padding="@dimen/margin5dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Organic Certification Agency" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin5dp"
+            android:id="@+id/TxtMobileNUmber"
+            android:textSize="@dimen/textsize14sp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/TxtUserTypeName"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="Orgaic Farms" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TXtCeoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize14sp"
+            android:padding="@dimen/margin5dp"
+            android:layout_below="@+id/TxtUserTypeName"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="CEO : Ashish Shinde" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:layout_width="match_parent"
+            android:id="@+id/TxtCertificateName"
+            android:textSize="@dimen/textsize14sp"
+            android:textColor="@color/white"
+            android:padding="@dimen/margin5dp"
+            android:layout_below="@+id/TXtCeoName"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="Vedic Organic Certification Agency"
+            android:layout_height="wrap_content" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtCertificateName"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="Product Details"
+            android:padding="@dimen/margin5dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textsize18sp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize14sp"
+            android:padding="@dimen/margin5dp"
+            android:layout_below="@+id/txt"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="Product : Green Moong" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtPrice"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:padding="@dimen/margin5dp"
+            android:layout_below="@+id/txt"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="@string/Rs" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtFromDate"
+            android:textSize="@dimen/textsize14sp"
+            android:textColor="@color/white"
+            android:padding="@dimen/margin5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtBrand"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="1970-01-01" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtToDate"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/textsize14sp"
+            android:padding="@dimen/margin5dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_below="@+id/TxtBrand"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/TxtFromDate"
+            android:text=" - 1970-01-01" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtQuantity"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/margin5dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_below="@+id/TxtBrand"
+            android:layout_alignParentRight="true"
+            android:text="Quantity : 10 ton to 25 ton" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtQuality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_below="@+id/TxtFromDate"
+            android:padding="@dimen/margin5dp"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="Quality : Dark green colour, moisture less than 12%, without infestation" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtDescriptioin"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtQuality"
+            android:textSize="@dimen/textsize14sp"
+            android:padding="@dimen/margin5dp"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:text="Description : organic with best rate" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtDescriptioin"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="vertical">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/txtBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TXtCeoName"
+                android:padding="@dimen/margin5dp"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:text="Bank Details"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize18sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize14sp"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:padding="@dimen/margin5dp"
+                android:textColor="@color/white"
+                android:text="Name : Pipri Chinchwad Collage Pune" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:padding="@dimen/margin5dp"
+                android:textSize="@dimen/textsize14sp"
+                android:textColor="@color/white"
+                android:text="Account Number : 10052765565" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:textSize="@dimen/textsize14sp"
+                    android:padding="@dimen/margin5dp"
+                    android:text="Bank Name : Indusand bank" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:padding="@dimen/margin5dp"
+                    android:textSize="@dimen/textsize14sp"
+                    android:text="IFSC : INDB0000307" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

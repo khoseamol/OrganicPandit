@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin5dp"
+    tools:context=".adapter.SearchUserwisePrductAdapter">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+       <LinearLayout
+           android:weightSum="2"
+           android:id="@+id/linn"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+               android:id="@+id/TxtBrand"
+               android:layout_width="0dp"
+               android:layout_weight="1.6"
+               android:layout_height="wrap_content"
+               android:padding="@dimen/margin5dp"
+               android:text="Bell Pepper/Capsicum"
+               android:textColor="@color/black" />
+
+           <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+               android:id="@+id/TxtBid"
+               android:layout_width="0dp"
+               android:layout_weight="0.4"
+               android:layout_height="wrap_content"
+               android:layout_alignParentRight="true"
+               android:background="@color/colorAccent"
+               android:gravity="center"
+               android:padding="@dimen/margin10dp"
+               android:text="Bid "
+               android:textColor="@color/white" />
+
+       </LinearLayout>
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtSpecification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linn"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:text="Rate : 140 per kg" />
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtSubCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtSpecification"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:text="Rate : 140 per kg" />
+
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtStock"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtSpecification"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="Quantity : 500 kg" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtPrice"
+            android:layout_width="match_parent"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtSubCategory"
+            android:layout_marginTop="@dimen/margin5dp" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtFinalRemarks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtPrice"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:padding="@dimen/margin_4dp"
+            android:text="cleaned sortex material, moisture not more than 12%, light brown colour" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/TxtFinalRemarks"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:background="@color/black" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/faintblack"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ProductRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_10dp"
+            android:visibility="gone">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin5dp"
+            android:orientation="vertical"
+            android:padding="@dimen/margin5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/profilboy" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                        android:id="@+id/TxtSubCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:text="Fullname : Amol Ramnath Khose"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize16sp" />
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                        android:id="@+id/TxtLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin5dp"
+                        android:text="Pune,Maharashtra"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Working since last 7 years in Organic Working since last 7 years in Organic agribusiness agribusiness"
+                android:textSize="@dimen/textsize16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:tint="@color/white"
+                        android:src="@drawable/view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                        android:layout_width="100dp"
+                        android:id="@+id/TxtProductView"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin5dp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:text="View"
+                        android:textSize="@dimen/textsize14sp" />
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:id="@+id/RelativeInQuiryFrom"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:tint="@color/white"
+                        android:src="@drawable/view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:text="Enquiry"
+                        android:paddingLeft="@dimen/margin5dp"
+                        android:textSize="@dimen/textsize14sp" />
+                </RelativeLayout><RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:tint="@color/white"
+                    android:src="@drawable/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin5dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:text="View"
+                    android:textSize="@dimen/textsize14sp" />
+            </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin10dp"
+    android:orientation="vertical"
+    android:padding="@dimen/margin10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:layout_width="wrap_content"
+            android:text="Select Certification"
+            android:textSize="@dimen/textsize18sp"
+            android:gravity="center"
+            android:padding="@dimen/margin10dp"
+            android:textColor="@color/colorAccent"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/ImageClose"
+            android:layout_width="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/close_icon"
+            android:layout_height="@dimen/margin40dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin10dp"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_weight="1"
+            android:id="@+id/CheckNoxNPOP"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="NPOP" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_weight="1"
+            android:id="@+id/CheckBoxNOP"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="NOP" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:id="@+id/CheckBoxPGS"
+            android:layout_height="wrap_content"
+            android:text="PGS" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:id="@+id/CheckBoxACOS"
+            android:layout_height="wrap_content"
+            android:text="ACOS" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/CheckBoxEU"
+            android:layout_height="wrap_content"
+            android:text="EU" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:id="@+id/CheckbothNPOPandnop"
+            android:layout_height="wrap_content"
+            android:text="Both NPOP &amp; NOP" />
+    </LinearLayout>
+
+
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldButton
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:id="@+id/BtnSubmit"
+        android:minHeight="@dimen/margin40dp"
+        android:text="Submit"
+
+        android:textColor="@color/white" />
+</LinearLayout>

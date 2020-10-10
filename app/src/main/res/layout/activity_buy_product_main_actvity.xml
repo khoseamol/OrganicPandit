@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/SearchLayoout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:background="@drawable/background">
+
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/SpinnerSelectState"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="@dimen/margin8dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:background="@drawable/background">
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/SpinnerSelectCity"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="@dimen/margin8dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:background="@drawable/background">
+
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/SpinnerSelectCategory"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="@dimen/margin8dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:background="@drawable/background">
+
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/SpinnerSelectProduct"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="@dimen/margin8dp" />
+
+
+        </RelativeLayout>
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldButton
+            android:id="@+id/BtnSerchpost"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin50dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:background="@color/colorAccent"
+            android:text="Search "
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/SearchLayoout">
+
+        <include layout="@layout/pagination_layout" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

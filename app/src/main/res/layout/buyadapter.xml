@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:padding="@dimen/margin10dp"
+        android:id="@+id/ImageBuyProduct"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/profilboy" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:id="@+id/TxtCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_toRightOf="@+id/ImageBuyProduct"
+        android:text="Category : Spices"
+        android:textColor="@color/colorAccent" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:id="@+id/TxtProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtCategory"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_marginTop="@dimen/margin15dp"
+        android:layout_toRightOf="@+id/ImageBuyProduct"
+        android:text="Product : Black cardamom" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:id="@+id/TxtStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TxtProductName"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_marginTop="@dimen/margin15dp"
+        android:layout_toRightOf="@+id/ImageBuyProduct"
+        android:text="Stock :" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/ImageBuyProduct"
+        android:layout_marginTop="@dimen/margin5dp"
+        android:background="@color/black" />
+</RelativeLayout>

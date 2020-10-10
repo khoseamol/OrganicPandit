@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin5dp"
+    android:padding="@dimen/margin5dp"
+    tools:context=".activity.ContactUsActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_aboutusheding"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize16sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin15dp"
+                android:gravity="center"
+                android:text="Our Story"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize18sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:text="@string/app_ourstory"
+                android:textSize="@dimen/textsize16sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin15dp"
+                android:gravity="center"
+                android:text="AIM"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize18sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:text="@string/app_aim"
+                android:textSize="@dimen/textsize16sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin15dp"
+                android:gravity="center"
+                android:text="Challenges"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize18sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:text="@string/app_challenges"
+                android:textSize="@dimen/textsize16sp" />
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin15dp"
+                android:gravity="center"
+                android:text="Benefits"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize18sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:text="@string/app_benefits"
+                android:textSize="@dimen/textsize16sp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

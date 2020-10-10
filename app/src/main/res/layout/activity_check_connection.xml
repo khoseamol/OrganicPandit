@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+android:layout_gravity="center"
+android:gravity="center"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin10dp"
+    android:orientation="vertical"
+    android:padding="@dimen/margin10dp">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:src="@drawable/internetconnection" />
+
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:gravity="center"
+        android:text="No Conncetion"
+
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/textsiz21sp" />
+    <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin15dp"
+        android:textSize="@dimen/textsize18sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Ops.. it's seems you can't connect to our Netword, check your internet connection."
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

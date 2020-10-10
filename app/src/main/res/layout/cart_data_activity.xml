@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ProductImage"
+            android:layout_width="@dimen/margin100dp"
+            android:layout_height="@dimen/margin100dp"
+            android:padding="@dimen/margin10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/cooming_soon" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/TxtPtype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/ProductImage"
+            android:paddingLeft="@dimen/margin10dp"
+            android:text="sdgfsdg" />
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+            android:id="@+id/TxtProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/ProductImage"
+            android:layout_below="@+id/TxtPtype"
+            android:paddingLeft="@dimen/margin10dp"
+            android:text="Online registration " />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtProductName"
+            android:layout_margin="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/ProductImage"
+            android:paddingLeft="@dimen/margin10dp"
+            android:text="Rs.56000.00"
+            android:textColor="@color/green" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+            android:id="@+id/TxtStock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtPrice"
+            android:layout_margin="@dimen/margin5dp"
+            android:layout_toRightOf="@+id/ProductImage"
+            android:layout_marginBottom="@dimen/margin10dp"
+            android:paddingLeft="@dimen/margin10dp"
+            android:text="in stock" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ProductImage"
+            android:layout_margin="@dimen/margin5dp">
+
+            <LinearLayout
+                android:layout_width="@dimen/margin150dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:background="@drawable/background"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin1dp">
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="@dimen/margin50dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/faintGray"
+                    android:gravity="center"
+                    android:text="-"
+                    android:id="@+id/TxtremoveItem"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsiz21sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="@dimen/margin50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:id="@+id/TxtItemCount"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize16sp" />
+
+                <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                    android:layout_width="@dimen/margin50dp"
+                    android:id="@+id/TxtItemAdd"
+                    android:layout_height="match_parent"
+                    android:background="@color/faintGray"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsiz21sp" />
+            </LinearLayout>
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtDelete"
+                android:layout_width="@dimen/margin100dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin10dp"
+                android:background="@color/faintGray"
+                android:gravity="center"
+                android:padding="@dimen/margin5dp"
+                android:text="Delete"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/TxtDelete"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_marginBottom="@dimen/margin10dp"
+                android:background="@color/gray" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

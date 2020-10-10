@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin5dp"
+        android:orientation="vertical"
+        android:padding="@dimen/margin10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TxtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin5dp"
+                android:text="Username : MeraKisan"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize16sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtUserName"
+                android:padding="@dimen/margin5dp"
+                android:text="Category : Millets" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtUserName"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="Barnyard Millet" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCategory"
+                android:padding="@dimen/margin5dp"
+                android:text="Quantity : 1000 " />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/txtExpectedPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCategory"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="Expected Price : 81" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtExpectedPrice"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="Total Price : 81" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtCertificateAgency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtTotalPrice"
+                android:padding="@dimen/margin5dp"
+                android:text="Agency : Indian Organic Certification Agency (INDOCERT)" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtVariety"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCertificateAgency"
+                android:padding="@dimen/margin5dp"
+                android:text="Variety" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCertificateAgency"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:padding="@dimen/margin5dp"
+                android:text="Color" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtCropYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCertificateAgency"
+                android:layout_alignParentRight="true"
+
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:layout_toRightOf="@+id/TxtColor"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="CropYear" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtBrokenratio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtVariety"
+                android:padding="@dimen/margin5dp"
+                android:text="Broken ratio" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtMoisture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtVariety"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/TxtBrokenratio"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="Moisture" />
+
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtSupplyquantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtBrokenratio"
+                android:padding="@dimen/margin5dp"
+                android:text="Supplyquantity : quantuty good" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtPackagingType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtMoisture"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:layout_toRightOf="@+id/TxtSupplyquantity"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="Packaging Type : Variety" />
+
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtProductDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtSupplyquantity"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:padding="@dimen/margin5dp"
+                android:text="unpolishes, Bold in Size ,clean andsortex" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtProductDescription"
+            android:layout_marginTop="@dimen/margin_20dp">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:id="@+id/TXtd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:padding="@dimen/margin5dp"
+                android:text="Delivery  Details"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize16sp" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtDeliveryLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TXtd"
+                android:padding="@dimen/margin5dp"
+                android:text="Delivery Location : Pune" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TXtd"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:layout_toRightOf="@+id/TxtDeliveryLocation"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="Maharastra " />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtLeadDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtDeliveryLocation"
+                android:padding="@dimen/margin5dp"
+                android:text="Lead Time : " />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtDeliveryType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtDeliveryLocation"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:layout_toRightOf="@+id/TxtLeadDay"
+                android:gravity="right"
+                android:padding="@dimen/margin5dp"
+                android:text="Delivery Type : Pick Only" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtOtherDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtDeliveryType"
+                android:padding="@dimen/margin5dp"
+                android:text="Other Details  : Need 50% payment advance Need 50% payment advance Need 50% payment advance" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtAddtocart"
+
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/TxtOtherDetails"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:padding="@dimen/margin5dp"
+                android:text="Add to Cart"
+                android:textColor="@color/white" />
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtAddEnqiry"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/TxtAddtocart"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:padding="@dimen/margin5dp"
+                android:text="Send Enquiry"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</ScrollView>
