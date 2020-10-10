@@ -297,7 +297,6 @@ public class DashBoardActivity extends MainActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_productcart) {
-
             if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
                 Intent intent = new Intent(mContext, ProductAddCartActivity.class);
                 startActivity(intent);
