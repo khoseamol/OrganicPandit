@@ -23,4 +23,7 @@ public interface AppDao {
 
     @Query("SELECT * FROM appentity WHERE ProductId = :productName")
     boolean isDataExist(String productName);
+
+    @Query("DELETE FROM AppEntity")
+    void deleteTable();
 }

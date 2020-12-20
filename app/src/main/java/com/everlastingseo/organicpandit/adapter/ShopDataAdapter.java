@@ -57,7 +57,7 @@ public class ShopDataAdapter extends RecyclerView.Adapter<ShopDataAdapter.ViewHo
 //                .load("http://organicpandit.com/assets/design/img/slider-2.jpg")
 //                .diskCacheStrategy(DiskCacheStrategy.NONE)
 //                .skipMemoryCache(true)
-                .error(R.drawable.ic_launcher_background)
+                .error(R.mipmap.ic_launcher)
                 .into(holder.mImageProduct);
     }
 

@@ -23,7 +23,6 @@
 
 
             <LinearLayout
-                android:background="@color/faintblack"
                 android:layout_margin="@dimen/margin1dp"
                 android:layout_width="match_parent"
                 android:padding="@dimen/margin_2dp"
@@ -58,7 +57,7 @@
                     android:scrollHorizontally="true"
                     android:singleLine="true"
                     android:text="Android Name"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize12sp" />
 
 

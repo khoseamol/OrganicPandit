@@ -1,9 +1,13 @@
 package com.everlastingseo.organicpandit.activity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,8 +20,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.everlastingseo.organicpandit.BuildConfig;
 import com.everlastingseo.organicpandit.R;
 import com.everlastingseo.organicpandit.helper.ApiClient;
 import com.everlastingseo.organicpandit.helper.ApiService;
@@ -28,8 +34,12 @@ import com.everlastingseo.organicpandit.pojo.login.LoginResponse;
 import com.everlastingseo.organicpandit.pojo.usertypr.UserTypeData;
 import com.everlastingseo.organicpandit.pojo.usertypr.UserTypeResponse;
 
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -89,6 +99,7 @@ public class LoginActvity extends AppCompatActivity implements View.OnClickListe
         mEditUserName = (EditText) findViewById(R.id.EditUserName);
         mEditPassword = (EditText) findViewById(R.id.EditPassword);
         mTxtForgotPassword = (TextView) findViewById(R.id.TxtForgotPassword);
+      CheckUPdate();
         callUserTypeData();
 
 
@@ -153,6 +164,9 @@ public class LoginActvity extends AppCompatActivity implements View.OnClickListe
                         if (loginResponse.getSuccess()) {
                             PrefUtils.saveToPrefs(mContext, "Login", "true");
                             PrefUtils.saveToPrefs(mContext, "user_id", loginResponse.getData().getUserId());
+                            PrefUtils.saveToPrefs(mContext, "FullName", loginResponse.getData().getFullname());
+                            PrefUtils.saveToPrefs(mContext, "Email", loginResponse.getData().getEmailId());
+                            PrefUtils.saveToPrefs(mContext, "Mobile", loginResponse.getData().getMobileNo());
                             PrefUtils.saveToPrefs(mContext, "UserTYPE_ID", UserTypeID);
                             PrefUtils.saveToPrefs(mContext, "userToken", loginResponse.getUserToken());
                             PrefUtils.saveToPrefs(mContext, "Is_subscription", loginResponse.getData().getIs_subscription());
@@ -216,5 +230,53 @@ public class LoginActvity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
         finish();
         System.exit(0);
+    }
+    private void CheckUPdate() {
+        VersionChecker versionChecker = new VersionChecker();
+        try
+        {   String appVersionName = BuildConfig.VERSION_NAME;
+            String mLatestVersionName = versionChecker.execute().get();
+            if(!appVersionName.equals(mLatestVersionName)){
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                alertDialog.setTitle("Please update your app");
+                alertDialog.setCancelable(false);
+                alertDialog.setMessage("This app version is no longer supported. Please update your app from the Play Store.");
+                alertDialog.setPositiveButton("UPDATE NOW", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        final String appPackageName = getPackageName();
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                        }
+                    }
+                });
+                alertDialog.show();
+            }
+
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+    @SuppressLint("StaticFieldLeak")
+    public class VersionChecker extends AsyncTask<String, String, String> {
+        private String newVersion;
+        @Override
+        protected String doInBackground(String... params) {
+
+            try {
+                newVersion = Jsoup.connect("https://play.google.com/store/apps/details?id="+getPackageName())
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get()
+                        .select(".hAyfc .htlgb")
+                        .get(7)
+                        .ownText();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return newVersion;
+        }
     }
 }

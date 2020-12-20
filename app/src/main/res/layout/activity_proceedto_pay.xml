@@ -11,12 +11,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delivery Address"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textsize18sp" />
+            android:layout_height="@dimen/margin40dp">
+            <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delivery Address"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize18sp" />
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_refresh"
+                android:id="@+id/img_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_25dp"/>
+        </RelativeLayout>
 
 
         <RelativeLayout
@@ -172,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin5dp"
                     android:layout_weight="1.5"
-                    android:text="Shopping Charges "
+                    android:text="Shipping Charges "
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize14sp" />
 

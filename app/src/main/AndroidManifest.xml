@@ -10,7 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".adapter.PaymentGatewayInitiate"></activity>
+        <activity android:name=".activity.SocialMediaActivity"></activity>
+        <activity
+            android:name=".subcriptionplan.SubPlanTabActivityMain"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".adapter.PaymentGatewayInitiate" />
         <activity
             android:name=".productcart.activity.DeliveryAddressActivity"
             android:screenOrientation="portrait"
@@ -115,8 +120,8 @@
         </activity>
     </application>
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

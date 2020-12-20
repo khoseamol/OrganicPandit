@@ -149,6 +149,7 @@ public class ShopDataActivity extends AppCompatActivity {
                                                     model.setESuser_ecommerce_id(data.getUserEcommerceId());
                                                     model.setESopcategory_id(data.getCategoryId());
                                                     model.setESopproduct_id(data.getProductId());
+                                                    model.setProductImg(data.getPrimaryImage());
                                                     model.setItemcount("1");
                                                     appDao.insert(model);
                                                     ApplicationConstatnt.toast(mContext, "Item Added");

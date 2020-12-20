@@ -24,6 +24,19 @@ public class AppEntity implements Serializable {
     @ColumnInfo(name = "BPsell_product_id")
     public String BPsell_product_id;
 
+
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(String productImg) {
+        this.productImg = productImg;
+    }
+
+    @ColumnInfo(name = "productImg")
+    public String productImg;
+
+
     @ColumnInfo(name = "EOIorganic_input_ecommerce_id")
     public String EOIorganic_input_ecommerce_id;
     @ColumnInfo(name = "EOIcategory_id")

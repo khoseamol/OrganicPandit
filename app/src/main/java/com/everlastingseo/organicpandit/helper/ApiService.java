@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -178,5 +179,18 @@ public interface ApiService {
 //    @FormUrlEncoded
     @POST("api-v1/organic-service-portal")
     Single<ResponsePrepareForPaymentGateway> getorderAPi(@Body JsonObject jsonObject);
+
+    @POST("api-v1/organic-service-portal")
+    Single<ResponsePrepareForPaymentGateway> getSubcriptionApi(@Body JsonObject jsonObject);
+
+    @POST("api-v1/organic-service-portal")
+    Single<ResponsePrepareForPaymentGateway> SubscriptionPaymentResponse(@Body JsonObject jsonObject);
+
+
+    @POST("api-v1/organic-service-portal")
+    Single<ResponsePrepareForPaymentGateway> getSubcriptionPlanApi(@Body JsonObject jsonObject);
+
+    @POST("api-v1/organic-service-portal")
+    Single<ResponsePrepareForPaymentGateway> sendPaymentresponse(@Body JsonObject jsonObject);
 
 }

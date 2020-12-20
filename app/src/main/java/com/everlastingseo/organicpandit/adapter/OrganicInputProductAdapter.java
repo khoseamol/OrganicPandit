@@ -66,7 +66,7 @@ public class OrganicInputProductAdapter extends RecyclerView.Adapter<OrganicInpu
 //                .load("http://organicpandit.com/assets/design/img/slider-2.jpg")
 //                .diskCacheStrategy(DiskCacheStrategy.NONE)
 //                .skipMemoryCache(true)
-                .error(R.drawable.ic_launcher_background)
+                .error(R.mipmap.ic_launcher)
                 .into(holder.mImageOranicProduct);
     }
 

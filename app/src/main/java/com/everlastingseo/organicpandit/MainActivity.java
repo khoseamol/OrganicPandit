@@ -3,7 +3,9 @@ package com.everlastingseo.organicpandit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +16,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.everlastingseo.organicpandit.activity.AboutUsActivity;
 import com.everlastingseo.organicpandit.activity.ContactUsActivity;
 import com.everlastingseo.organicpandit.activity.LoginActvity;
+import com.everlastingseo.organicpandit.activity.SocialMediaActivity;
 import com.everlastingseo.organicpandit.helper.PrefUtils;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     public FrameLayout mframelayout;
+    TextView mTxtName, mtxtEmail;
     private Intent intent;
 
     @Override
@@ -37,10 +41,16 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+        mTxtName = header.findViewById(R.id.TxtName);
+        mTxtName.setText(PrefUtils.getFromPrefs(MainActivity.this, "FullName", ""));
+        mTxtName = header.findViewById(R.id.TxtName);
+        mtxtEmail = header.findViewById(R.id.txtEmail);
+        mtxtEmail.setText(PrefUtils.getFromPrefs(MainActivity.this, "Email", ""));
     }
 
     private void bindview() {
-        mframelayout = (FrameLayout) findViewById(R.id.framelayout);
+        mframelayout = findViewById(R.id.framelayout);
 
     }
 
@@ -61,9 +71,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_aboutus) {
             Intent intent = new Intent(MainActivity.this, AboutUsActivity.class);
@@ -83,7 +91,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout) {
             PrefUtils.saveToPrefs(MainActivity.this, "Login", "false");
             PrefUtils.removeFromPrefs(MainActivity.this, "UserTYPE_ID");
+            PrefUtils.removeAllFromPrefs(MainActivity.this);
             Intent intent = new Intent(MainActivity.this, LoginActvity.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_social) {
+            Intent intent = new Intent(MainActivity.this, SocialMediaActivity.class);
             startActivity(intent);
 
         }

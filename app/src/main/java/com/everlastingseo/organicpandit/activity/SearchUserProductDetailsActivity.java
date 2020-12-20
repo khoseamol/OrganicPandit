@@ -157,7 +157,6 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             }
                             if (userTypeResponse.getData().getUserCropList().size() > 0) {
                                 mLinearCropInspectionDetails.setVisibility(View.VISIBLE);
-
                                 mRecycleviewCropInspectionDetails.setVisibility(View.VISIBLE);
                                 FiveUserCropInspectionDetailsAdapter userCropInspectionDetailsAdapter = new FiveUserCropInspectionDetailsAdapter(mContext, userTypeResponse.getData().getUserCropList());
                                 mRecycleviewCropInspectionDetails.setAdapter(userCropInspectionDetailsAdapter);

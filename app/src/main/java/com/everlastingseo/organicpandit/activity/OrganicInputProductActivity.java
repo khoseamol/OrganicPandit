@@ -148,6 +148,7 @@ public class OrganicInputProductActivity extends AppCompatActivity {
                                                             model.setEOIcategory_id(organicProductData.getCategoryId());
                                                             model.setEOIsub_category_id(organicProductData.getSubCategoryId());
                                                             model.setEOIbrand(organicProductData.getEcommerceBrandId());
+                                                            model.setProductImg(organicProductData.getImages());
 
                                                             model.setItemcount("1");
                                                             appDao.insert(model);

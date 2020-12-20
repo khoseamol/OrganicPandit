@@ -98,6 +98,18 @@ public class PaymentDetails implements Serializable {
     @Expose
     private String hash;
 
+    public String getPay_mode() {
+        return pay_mode;
+    }
+
+    public void setPay_mode(String pay_mode) {
+        this.pay_mode = pay_mode;
+    }
+
+    @SerializedName("pay_mode")
+    @Expose
+    private String pay_mode;
+
 
 
 

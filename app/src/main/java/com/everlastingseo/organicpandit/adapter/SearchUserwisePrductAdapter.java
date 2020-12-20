@@ -1,6 +1,7 @@
 package com.everlastingseo.organicpandit.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.everlastingseo.organicpandit.R;
@@ -24,10 +26,12 @@ import com.everlastingseo.organicpandit.activity.SearchUserProductDetailsActivit
 import com.everlastingseo.organicpandit.activity.ShopDataActivity;
 import com.everlastingseo.organicpandit.dialog.ProductInquiryDialog;
 import com.everlastingseo.organicpandit.helper.ApplicationConstatnt;
+import com.everlastingseo.organicpandit.helper.PrefUtils;
 import com.everlastingseo.organicpandit.pagination.PaginationAdapterCallback;
 import com.everlastingseo.organicpandit.pojo.postrequirment.PostRequirmentData;
 import com.everlastingseo.organicpandit.pojo.searchuser_wise.SearchData;
 import com.bumptech.glide.Glide;
+import com.everlastingseo.organicpandit.subcriptionplan.SubPlanTabActivityMain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -130,18 +134,29 @@ public class SearchUserwisePrductAdapter extends RecyclerView.Adapter<RecyclerVi
                 holder.mTxtView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(context, SearchUserProductDetailsActivity.class);
-                        intent.putExtra("TITLE", data.get(position).getFullname());
-                        intent.putExtra("ID", data.get(position).getUserId());
-                        context.startActivity(intent);
+                        if (PrefUtils.getFromPrefs(context, "Is_subscription", "").equals("1")) {
+                            Intent intent = new Intent(context, SearchUserProductDetailsActivity.class);
+                            intent.putExtra("TITLE", data.get(position).getFullname());
+                            intent.putExtra("ID", data.get(position).getUserId());
+                            context.startActivity(intent);
+                        } else {
+                            callsubScriptionDialog();
+                        }
+
+
                     }
                 });
                 holder.mTxtEnqiry.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (PrefUtils.getFromPrefs(context, "Is_subscription", "").equals("1")) {
+                            ProductInquiryDialog productInquiryDialog = new ProductInquiryDialog(context,data.get(position).getUserTypeId(),data.get(position).getUserId());
+                            productInquiryDialog.show();
+                        } else {
+                            callsubScriptionDialog();
+                        }
 
-                        ProductInquiryDialog productInquiryDialog = new ProductInquiryDialog(context,data.get(position).getUserTypeId(),data.get(position).getUserId());
-                        productInquiryDialog.show();
+
                     }
                 });
                 break;
@@ -298,5 +313,26 @@ public void removeprogress(){
             });
         }
     }
-
+    private void callsubScriptionDialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setMessage(ApplicationConstatnt.SUBCRIPTION_MESSGE);
+        alertDialogBuilder.setTitle(ApplicationConstatnt.SUBCRIPTION_TITLE);
+        alertDialogBuilder.setPositiveButton("yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Intent intent = new Intent(context, SubPlanTabActivityMain.class);
+                        context.startActivity(intent);
+                    }
+                });
+        alertDialogBuilder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        arg0.dismiss();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
 }

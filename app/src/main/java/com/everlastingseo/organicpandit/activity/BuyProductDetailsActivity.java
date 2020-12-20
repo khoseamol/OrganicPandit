@@ -211,6 +211,7 @@ public class BuyProductDetailsActivity extends AppCompatActivity implements View
                         model.setproductName(mSellProductResponseData.getProductName());
                         model.setpPrice(mSellProductResponseData.getPrice());
                         model.setBPsell_product_id(mSellProductResponseData.getSellProductId());
+                        model.setProductImg(mSellProductResponseData.getPrimaryImage());
                         model.setItemcount("1");
                         appDao.insert(model);
                         ApplicationConstatnt.toast(mContext, "Item Added");

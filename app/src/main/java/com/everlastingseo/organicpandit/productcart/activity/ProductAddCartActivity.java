@@ -9,13 +9,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import com.easebuzz.payment.kit.PWECouponsActivity;
 import com.everlastingseo.organicpandit.R;
-import com.everlastingseo.organicpandit.adapter.PaymentGatewayInitiate;
 import com.everlastingseo.organicpandit.helper.ApiClient;
 import com.everlastingseo.organicpandit.helper.ApiService;
 import com.everlastingseo.organicpandit.helper.ApplicationConstatnt;
@@ -31,10 +32,10 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import datamodels.PWEStaticDataModel;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
 
 public class ProductAddCartActivity extends AppCompatActivity implements View.OnClickListener {
     Context mContext;
@@ -392,9 +393,19 @@ public class ProductAddCartActivity extends AppCompatActivity implements View.On
                     @Override
                     public void onSuccess(ResponsePrepareForPaymentGateway loginResponse) {
                         progressDialog.dismiss();
-                        Intent intent=new Intent(mContext, PaymentGatewayInitiate.class);
-                        intent.putExtra("Data",loginResponse);
-                        startActivity(intent);
+
+                        if (!loginResponse.getResponse().getData().getSuccess()) {
+                            ApplicationConstatnt.getDialog(mContext, "Response", loginResponse.getResponse().getData().getMessage());
+                        } else {
+                            Intent intent=new Intent(mContext, ProceedToPayActivity.class);
+                            intent.putExtra("TotalAmount",loginResponse.getResponse().getData().getData().getPaymentDetails().getAmount());
+                            intent.putExtra("Data",loginResponse);
+
+                            startActivity(intent);
+                            ProductAddCartActivity.this.finish();
+
+                        }
+
 
                     }
 
@@ -405,4 +416,6 @@ public class ProductAddCartActivity extends AppCompatActivity implements View.On
                     }
                 });
     }
+
+
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.SocialMediaActivity">
+
+    <RelativeLayout
+        android:id="@+id/LayoutImgFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ImgFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/fb">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ImgFacebook"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:gravity="center"
+            android:text="Facebook"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize18sp">
+
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/LayoutImginsta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin10dp">
+
+        <ImageView
+            android:id="@+id/Imginsta"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/whatsapp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Imginsta"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:gravity="center"
+            android:text="whatsApp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize18sp">
+
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/LayoutImgtweeter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin10dp">
+
+        <ImageView
+            android:id="@+id/Imgtweeter"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/fb">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Imgtweeter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:gravity="center"
+            android:text="Twitter"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize18sp">
+
+        </TextView>
+    </RelativeLayout>
+
+</LinearLayout>

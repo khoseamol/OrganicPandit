@@ -1,10 +1,14 @@
 package com.everlastingseo.organicpandit.activity;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +22,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.everlastingseo.organicpandit.BuildConfig;
 import com.everlastingseo.organicpandit.MainActivity;
 import com.everlastingseo.organicpandit.R;
 import com.everlastingseo.organicpandit.adapter.DashBoardServiceAdapter;
@@ -31,13 +36,18 @@ import com.everlastingseo.organicpandit.model.DashboardServiceModel;
 import com.everlastingseo.organicpandit.pojo.sliderimage.SliderImageResponse;
 import com.everlastingseo.organicpandit.pojo.worth_details.WorthResponse;
 import com.everlastingseo.organicpandit.productcart.activity.ProductAddCartActivity;
+import com.everlastingseo.organicpandit.subcriptionplan.SubPlanTabActivityMain;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -87,19 +97,25 @@ public class DashBoardActivity extends MainActivity implements View.OnClickListe
 
         mTXtSerchDeal.setSelected(true);
         generateServiceModel();
-
+CheckUPdate();
         mServiceRecycleView.setLayoutManager(new GridLayoutManager(mContext, 4));
         DashBoardServiceAdapter dashBoardServiceAdapter = new DashBoardServiceAdapter(mContext, modelList, new DashBoardServiceAdapter.OnClick() {
             @Override
             public void gettitle(DashboardServiceModel dashboardServiceModel) {
-                if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
+                if (dashboardServiceModel.getServicename().equals("Shop") || dashboardServiceModel.getServicename().equals("Organic Input")) {
                     Intent intent = new Intent(mContext, SearchUserProductActvity.class);
                     intent.putExtra("TITLE", dashboardServiceModel.getServicename());
                     intent.putExtra("ID", dashboardServiceModel.getUserID());
                     startActivity(intent);
                 } else {
-                    callsubScriptionDialog();
+
+                    Intent intent = new Intent(mContext, SearchUserProductActvity.class);
+                    intent.putExtra("TITLE", dashboardServiceModel.getServicename());
+                    intent.putExtra("ID", dashboardServiceModel.getUserID());
+                    startActivity(intent);
+
                 }
+
 
             }
 
@@ -118,28 +134,54 @@ public class DashBoardActivity extends MainActivity implements View.OnClickListe
         });
     }
 
-    private void callsubScriptionDialog() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
-        alertDialogBuilder.setMessage(ApplicationConstatnt.SUBCRIPTION_MESSGE);
-        alertDialogBuilder.setTitle(ApplicationConstatnt.SUBCRIPTION_TITLE);
-        alertDialogBuilder.setPositiveButton("yes",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
+    private void CheckUPdate() {
+        VersionChecker versionChecker = new VersionChecker();
+        try
+        {   String appVersionName = BuildConfig.VERSION_NAME;
+            String mLatestVersionName = versionChecker.execute().get();
+            if(!appVersionName.equals(mLatestVersionName)){
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                alertDialog.setTitle("Please update your app");
+                alertDialog.setCancelable(false);
+                alertDialog.setMessage("This app version is no longer supported. Please update your app from the Play Store.");
+                alertDialog.setPositiveButton("UPDATE NOW", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        final String appPackageName = getPackageName();
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                        }
+                    }
+                });
+                alertDialog.show();
+            }
 
-                    }
-                });
-        alertDialogBuilder.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        arg0.dismiss();
-                    }
-                });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
     }
+    @SuppressLint("StaticFieldLeak")
+    public class VersionChecker extends AsyncTask<String, String, String> {
+        private String newVersion;
+        @Override
+        protected String doInBackground(String... params) {
 
+            try {
+                newVersion = Jsoup.connect("https://play.google.com/store/apps/details?id="+getPackageName())
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get()
+                        .select(".hAyfc .htlgb")
+                        .get(7)
+                        .ownText();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return newVersion;
+        }
+    }
     private void CallSilderIMAGE() {
         final ProgressDialog progressDialog = CustomProgressDialog.ctor(DashBoardActivity.this);
         progressDialog.show();
@@ -186,7 +228,7 @@ public class DashBoardActivity extends MainActivity implements View.OnClickListe
         DashboardServiceModel service2 = new DashboardServiceModel("2", "FPO", R.drawable.icon_fpo);
         DashboardServiceModel service3 = new DashboardServiceModel("3", "Trader", R.drawable.icon_trader);
         DashboardServiceModel service4 = new DashboardServiceModel("4", "Professor", R.drawable.icon_processor);
-        DashboardServiceModel service5 = new DashboardServiceModel("5", "BUYER", R.drawable.icon_buyer);
+        DashboardServiceModel service5 = new DashboardServiceModel("5", "Buyer", R.drawable.icon_buyer);
         DashboardServiceModel service6 = new DashboardServiceModel("6", "Organic Consultant", R.drawable.icon_organic_consultant);
         DashboardServiceModel service7 = new DashboardServiceModel("18", "NGO", R.drawable.icon_ngo);
         DashboardServiceModel service8 = new DashboardServiceModel("17", "Restaurants", R.drawable.icon_restaurant);
@@ -227,14 +269,15 @@ public class DashBoardActivity extends MainActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.RelativeSearchDeal:
-
-                if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
-                    Intent intent = new Intent(mContext, SearchDealPreActvity.class);
-                    intent.putExtra("TITLE", "Search Deal");
-                    startActivity(intent);
-                } else {
-                    callsubScriptionDialog();
-                }
+//
+//                if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
+//
+//                } else {
+//                    callsubScriptionDialog();
+//                }
+                Intent intent = new Intent(mContext, SearchDealPreActvity.class);
+                intent.putExtra("TITLE", "Search Deal");
+                startActivity(intent);
 
                 break;
             case R.id.RelativeDealWorth:
@@ -242,21 +285,23 @@ public class DashBoardActivity extends MainActivity implements View.OnClickListe
                 CallWorthDetails();
                 break;
             case R.id.RelativePostsDeals:
-                if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
-                    Intent    intent = new Intent(mContext, PostDealActivity.class);
-                    startActivity(intent);
-                } else {
-                    callsubScriptionDialog();
-                }
+//                if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
+//
+//                } else {
+//                    callsubScriptionDialog();
+//                }
+                 intent = new Intent(mContext, PostDealActivity.class);
+                startActivity(intent);
 
                 break;
             case R.id.RelativeBuyProduct:
-                if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
-                    Intent intent = new Intent(mContext, BuyProductMainActvity.class);
-                    startActivity(intent);
-                } else {
-                    callsubScriptionDialog();
-                }
+//                if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
+//
+//                } else {
+//                    callsubScriptionDialog();
+//                }
+                 intent = new Intent(mContext, BuyProductMainActvity.class);
+                startActivity(intent);
 
                 break;
         }
@@ -297,13 +342,13 @@ public class DashBoardActivity extends MainActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_productcart) {
-            if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
-                Intent intent = new Intent(mContext, ProductAddCartActivity.class);
-                startActivity(intent);
-            } else {
-                callsubScriptionDialog();
-            }
-
+//            if (PrefUtils.getFromPrefs(mContext, "Is_subscription", "").equals("1")) {
+//
+//            } else {
+//                callsubScriptionDialog();
+//            }
+            Intent intent = new Intent(mContext, ProductAddCartActivity.class);
+            startActivity(intent);
             return true;
         }
 

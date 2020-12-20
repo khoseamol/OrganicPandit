@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".subcriptionplan.StandredPlanFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_width="match_parent"
+            android:padding="@dimen/margin5dp"
+            android:clickable="false"
+            android:textSize="@dimen/textsize16sp"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Send Unlimited SMS To All Stakeholders" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin5dp"
+            android:clickable="false"
+            android:textSize="@dimen/textsize16sp"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:checked="true"
+            android:text="12 Blog Postings About Your Company" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:clickable="false"
+            android:padding="@dimen/margin5dp"
+            android:textSize="@dimen/textsize16sp"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Free Access To E-Commerce Market Place" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:checked="true"
+            android:padding="@dimen/margin5dp"
+            android:textSize="@dimen/textsize16sp"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Free Listing Of Products And Services" />
+
+        <com.everlastingseo.organicpandit.utils.font.CustomBoldCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:clickable="false"
+            android:padding="@dimen/margin5dp"
+            android:textSize="@dimen/textsize16sp"
+            android:layout_marginLeft="@dimen/margin10dp"
+            android:layout_marginRight="@dimen/margin10dp"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:text="Free Searching" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/BtnPremiMumPlan"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin15dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginRight="@dimen/margin10dp"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

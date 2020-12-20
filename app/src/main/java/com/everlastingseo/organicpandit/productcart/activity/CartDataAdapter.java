@@ -1,14 +1,18 @@
 package com.everlastingseo.organicpandit.productcart.activity;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.everlastingseo.organicpandit.R;
 import com.everlastingseo.organicpandit.helper.db.AppEntity;
 
@@ -64,7 +68,12 @@ public class CartDataAdapter extends RecyclerView.Adapter<CartDataAdapter.ViewHo
             }
         });
         holder.mTxtItemCount.setText(modelList.get(position).getItemcount());
-
+        Glide.with(mContext)
+                .load(Uri.parse("http://organicpandit.com/" + modelList.get(position).getProductImg()))
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .error(R.mipmap.ic_launcher)
+                .into(holder.mProductImage);
 
     }
 
@@ -85,7 +94,7 @@ public class CartDataAdapter extends RecyclerView.Adapter<CartDataAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView mTxtProductName, TxtPtype, mTxtDelete, mTxtPrice, mTxtremoveItem, mTxtItemCount, mTxtItemAdd;
-
+ImageView mProductImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             TxtPtype = (TextView) itemView.findViewById(R.id.TxtPtype);
@@ -95,6 +104,8 @@ public class CartDataAdapter extends RecyclerView.Adapter<CartDataAdapter.ViewHo
             mTxtremoveItem = (TextView) itemView.findViewById(R.id.TxtremoveItem);
             mTxtItemCount = (TextView) itemView.findViewById(R.id.TxtItemCount);
             mTxtItemAdd = (TextView) itemView.findViewById(R.id.TxtItemAdd);
+            mProductImage=(ImageView)itemView.findViewById(R.id.ProductImage);
+
 
 
 //            mTxtProductId=(TextView)itemView.findViewById(R.id.TxtProductId);
