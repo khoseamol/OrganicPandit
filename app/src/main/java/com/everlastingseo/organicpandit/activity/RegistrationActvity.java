@@ -28,15 +28,20 @@ import com.everlastingseo.organicpandit.helper.ApiClient;
 import com.everlastingseo.organicpandit.helper.ApiService;
 import com.everlastingseo.organicpandit.helper.ApplicationConstatnt;
 import com.everlastingseo.organicpandit.helper.CustomProgressDialog;
+import com.everlastingseo.organicpandit.helper.PrefUtils;
 import com.everlastingseo.organicpandit.pojo.certificate_agency.AgencyData;
 import com.everlastingseo.organicpandit.pojo.certificate_agency.CertificateAgencyResponse;
 import com.everlastingseo.organicpandit.pojo.citylist.CityData;
 import com.everlastingseo.organicpandit.pojo.citylist.CityRespose;
 import com.everlastingseo.organicpandit.pojo.contrylist.CountryData;
 import com.everlastingseo.organicpandit.pojo.contrylist.CountryResponse;
-import com.everlastingseo.organicpandit.pojo.fetchuserdata.FetchUserDataResponse;
+import com.everlastingseo.organicpandit.pojo.login.LoginResponse;
+import com.everlastingseo.organicpandit.pojo.otp.OTPResponse;
+import com.everlastingseo.organicpandit.pojo.preparepaymentgatway.ResponsePrepareForPaymentGateway;
+import com.everlastingseo.organicpandit.pojo.registrationpojo.RegistrationResponse;
 import com.everlastingseo.organicpandit.pojo.statelist.StateData;
 import com.everlastingseo.organicpandit.pojo.statelist.StateResponse;
+import com.google.gson.JsonObject;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import java.util.ArrayList;
@@ -190,8 +195,8 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
     }
 
     private void callCityList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
+//        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -199,7 +204,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -214,15 +219,15 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                     @Override
                     public void onError(Throwable e) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void callStateList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
+//        progressDialog.show();
 
         apiService.getstateList(id)
                 .subscribeOn(Schedulers.io())
@@ -230,7 +235,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                 .subscribeWith(new DisposableSingleObserver<StateResponse>() {
                     @Override
                     public void onSuccess(StateResponse userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             stateDataList.clear();
                             stateDataList = userTypeResponse.getData();
@@ -245,7 +250,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                     @Override
                     public void onError(Throwable e) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
@@ -356,14 +361,14 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                                             } else {
                                                 mEditAddress.setError(null);
                                                 if (contryID == null) {
-                                                    ApplicationConstatnt.getDialog(mContext, "Response", "Please select contry");
+                                                    ApplicationConstatnt.getDialog(mContext, "", "Please select contry");
                                                 } else {
                                                     if (stateID == null) {
-                                                        ApplicationConstatnt.getDialog(mContext, "Response", "Please select State");
+                                                        ApplicationConstatnt.getDialog(mContext, "", "Please select State");
 
                                                     } else {
                                                         if (cityID == null) {
-                                                            ApplicationConstatnt.getDialog(mContext, "Response", "Please select City");
+                                                            ApplicationConstatnt.getDialog(mContext, "", "Please select City");
 
                                                         } else {
                                                             if (selectCertificateLists.size() > 0) {
@@ -372,22 +377,24 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                                                                     Cerificatio.append(s + ",");
                                                                 }
                                                                 if (Cerificatio.equals("")) {
-                                                                    ApplicationConstatnt.getDialog(mContext, "Response", "Select Certification");
+                                                                    ApplicationConstatnt.getDialog(mContext, "", "Select Certification");
                                                                 } else {
 
                                                                     if (agencyID == null) {
-                                                                        ApplicationConstatnt.getDialog(mContext, "Response", "Select Certificate Agency");
+                                                                        ApplicationConstatnt.getDialog(mContext, "", "Select Certificate Agency");
 
                                                                     } else {
+
                                                                         callRegisterApi(mEditFullname.getText().toString().trim(), mEditUserName.getText().toString().trim(),
                                                                                 mEditEmail.getText().toString().trim(), mEditMobilNumber.getText().toString().trim(),
                                                                                 mEditPassword.getText().toString().trim(), mEditConfirmPassword.getText().toString().trim(),
                                                                                 mEditAddress.getText().toString().trim(), contryID, stateID, cityID, Cerificatio.toString(), agencyID);
+
                                                                     }
                                                                 }
 
                                                             } else {
-                                                                ApplicationConstatnt.getDialog(mContext, "Response", "Please select Certificate");
+                                                                ApplicationConstatnt.getDialog(mContext, "", "Please select Certificate");
 
                                                             }
 
@@ -397,7 +404,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                                                 }
                                             }
                                         } else {
-                                            ApplicationConstatnt.getDialog(mContext, "Response", "Password miss match");
+                                            ApplicationConstatnt.getDialog(mContext, "", "Password miss match");
                                         }
                                     }
                                 }
@@ -406,41 +413,59 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                     }
                 }
             }
+
         }
 
     }
 
-    private void callRegisterApi(String fullname, String username, String emailid, String mobile, String password, String confimpassword, String address, String contryID, String stateID, String cityID, String cerificatio, String agencyID) {
+    private void callRegisterApi(String fullname, String username, String emailid, final String mobile, String password, String confimpassword, String address, String contryID, String stateID, String cityID, String cerificatio, String agencyID) {
         final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
         progressDialog.show();
 
         apiService.getregistration(getIntent().getStringExtra("USERID"), fullname, username, emailid, mobile, password, confimpassword, address, contryID, stateID, cityID, cerificatio, agencyID)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<FetchUserDataResponse>() {
+                .subscribeWith(new DisposableSingleObserver<RegistrationResponse>() {
                     @Override
-                    public void onSuccess(FetchUserDataResponse userTypeResponse) {
+                    public void onSuccess(final RegistrationResponse userTypeResponse) {
                         progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
-                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
-                            alertDialogBuilder.setMessage(userTypeResponse.getMessage());
-                            alertDialogBuilder.setTitle("Response");
-                            alertDialogBuilder.setPositiveButton("yes",
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface arg0, int arg1) {
-                                            arg0.dismiss();
-                                            Intent intent = new Intent(mContext, LoginActvity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    });
+//
+
+                            final Dialog dialog = new Dialog(mContext);
+                            dialog.setCancelable(false);
+                            dialog.setContentView(R.layout.otp_dailog);
+                            String mask = mobile.replaceAll("\\w(?=\\w{4})", "*");
+
+                            TextView mTxtMobilenumberText = (TextView) dialog.findViewById(R.id.TxtMobilenumberText);
+                            mTxtMobilenumberText.setText("The OTP has been sent to" + mask);
+                            ImageView mImgclose=dialog.findViewById(R.id.Imgclose);
+                            mImgclose.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            final EditText EditOTP = (EditText) dialog.findViewById(R.id.EditOTP);
+                            Button mbtnOTPSumbmit=(Button)dialog.findViewById(R.id.btnOTPSumbmit);
+                            mbtnOTPSumbmit.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                  if(TextUtils.isEmpty(EditOTP.getText().toString().trim())){
+                                      EditOTP.setError("Enter OTP");
+                                  }else {
+                                      callOTPVerificationAPI(EditOTP.getText().toString().trim(), mobile, userTypeResponse.getData().getUserId().toString());
+
+                                  }
+
+                                }
+                            });
+
+                               dialog.show();
 
 
-                            AlertDialog alertDialog = alertDialogBuilder.create();
-                            alertDialog.show();
                         } else {
-                            ApplicationConstatnt.getDialog(mContext, "Response", userTypeResponse.getMessage());
+                            ApplicationConstatnt.getDialog(mContext, "", userTypeResponse.getMessage());
                         }
                     }
 
@@ -453,11 +478,113 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                 });
     }
 
+    private void callOTPVerificationAPI(String OTP, String mobile, String userid) {
+        try {
+            JsonObject mainJsonObject = new JsonObject();
+            mainJsonObject.addProperty(ApplicationConstatnt.Request_app_version, "1.0");
+            JsonObject objAuth = new JsonObject();
+            objAuth.addProperty(ApplicationConstatnt.Request_type, "user");
+            objAuth.addProperty(ApplicationConstatnt.Request_token, PrefUtils.getFromPrefs(mContext, "userToken", ""));
+            mainJsonObject.add(ApplicationConstatnt.Request_Auth, objAuth);
+            JsonObject objMethod = new JsonObject();
+
+            JsonObject objParameter = new JsonObject();
+            objParameter.addProperty("user_id", userid);
+            objParameter.addProperty("otp", OTP);
+
+
+            objMethod.addProperty(ApplicationConstatnt.Request_name, "ValidateOtp");
+            mainJsonObject.add(ApplicationConstatnt.Request_method, objMethod);
+            objMethod.add(ApplicationConstatnt.Request_parameters, objParameter);
+//                            ApplicationConstatnt.getDialog(mContext, "Response", result);
+
+            sendOtpReuestApiResponse(mainJsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ApplicationConstatnt.toast(mContext, "Somthing went wrong");
+
+        }
+
+    }
+
+    private void sendOtpReuestApiResponse(JsonObject mainJsonObject) {
+        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
+        progressDialog.show();
+
+        apiService.sendotp(mainJsonObject)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<OTPResponse>() {
+                    @Override
+                    public void onSuccess(OTPResponse loginResponse) {
+                        progressDialog.dismiss();
+
+                        if (loginResponse != null) {
+
+                            if(loginResponse.getResponse().getData().getSuccess()){
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
+                                alertDialogBuilder.setMessage(loginResponse.getResponse().getData().getMessage());
+                                alertDialogBuilder.setTitle("");
+                                alertDialogBuilder.setPositiveButton("yes",
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface arg0, int arg1) {
+                                                arg0.dismiss();
+                                                Intent intent = new Intent(mContext, LoginActvity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            }
+                                        });
+
+
+                                AlertDialog alertDialog = alertDialogBuilder.create();
+                                alertDialog.show();
+                            }else {
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
+                                alertDialogBuilder.setMessage(loginResponse.getResponse().getData().getMessage());
+                                alertDialogBuilder.setTitle("");
+                                alertDialogBuilder.setPositiveButton("yes",
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface arg0, int arg1) {
+                                                arg0.dismiss();
+
+                                            }
+                                        });
+
+
+                                AlertDialog alertDialog = alertDialogBuilder.create();
+                                alertDialog.show();
+                            }
+
+                        } else {
+                            Toast.makeText(mContext, "Error ", Toast.LENGTH_SHORT).show();
+
+                        }
+//                        if (loginResponse.getResponse().getData().getStatus().equals("")) {
+//                        } else {
+//
+//
+//                        }
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     private void callSelectCertificateDialog() {
         final Dialog dialog = new Dialog(mContext);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialog.getWindow().setLayout(600, 400);
         dialog.setContentView(R.layout.certificate_select);
+
         dialog.setCancelable(false);
         ImageView mImageClose = (ImageView) dialog.findViewById(R.id.ImageClose);
         mImageClose.setOnClickListener(new View.OnClickListener() {
@@ -578,7 +705,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                 if (selectCertificateLists.size() > 0) {
                     dialog.dismiss();
                 } else {
-                    ApplicationConstatnt.getDialog(mContext, "Response ", "Select Certifications");
+                    ApplicationConstatnt.getDialog(mContext, " ", "Select Certifications");
                 }
             }
         });

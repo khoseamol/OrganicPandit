@@ -194,7 +194,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
             @Override
             public void onClick(View view) {
                 if (StateId == null) {
-                    ApplicationConstatnt.getDialog(mContext, "Response", "Select State");
+                    ApplicationConstatnt.getDialog(mContext, "", "Select State");
                 } else {
 
                     doRefresh();
@@ -228,32 +228,6 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
         callTopRatedMoviesApi().enqueue(new Callback<PostReqirmentResponse>() {
             @Override
             public void onResponse(Call<PostReqirmentResponse> call, Response<PostReqirmentResponse> response) {
-//                if (response.isSuccessful()) {
-//                    if (response.body().getSuccess()) {
-//                        if (response.body().getData().size() > 0) {
-//                            adapter.removeLoadingFooter();
-//                            isLoading = false;
-//
-//                            List<PostRequirmentData> results = fetchResults(response);
-//                            adapter.addAll(results);
-//                            if (currentPage != TOTAL_PAGES) adapter.addLoadingFooter();
-//                            else isLastPage = true;
-//
-//                        } else {
-//                            adapter.removeLoadingFooter();
-//
-//                            Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
-//                        }
-//                    } else {
-//                        adapter.removeLoadingFooter();
-//
-//                        Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
-//                    }
-//                } else {
-//                    adapter.removeLoadingFooter();
-//
-//                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
-//                }
                 try {
                     if (response.body().getSuccess()) {
                         adapter.removeLoadingFooter();
@@ -266,10 +240,10 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
                         else isLastPage = true;
                     } else {
                         adapter.removeLoadingFooter();
-                        Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -306,36 +280,8 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
                     if (currentPage <= TOTAL_PAGES) adapter.addLoadingFooter();
                     else isLastPage = true;
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
                 }
-//                progressBar.setVisibility(View.GONE);
-//                if (response.isSuccessful()) {
-//                    if (response.body().getSuccess()) {
-//                        if (response.body().getData().size() > 0) {
-//
-//                            List<PostRequirmentData> results = fetchResults(response);
-//                            progressBar.setVisibility(View.GONE);
-//                            adapter.addAll(results);
-//
-//                            if (currentPage <= TOTAL_PAGES) adapter.addLoadingFooter();
-//                            else isLastPage = true;
-//                            adapter.removeLoadingFooter();
-//
-//                        } else {
-//                            adapter.removeLoadingFooter();
-//
-//                            Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
-//                        }
-//                    } else {
-//                        adapter.removeLoadingFooter();
-//
-//                        Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
-//                    }
-//                } else {
-//                    adapter.removeLoadingFooter();
-//
-//                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
-//                }
             }
 
             @Override
@@ -359,13 +305,12 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
     protected void onRestart() {
         super.onRestart();
         doRefresh();
-        ApplicationConstatnt.toast(mContext, "Onrestart");
     }
 
 
     private void callCityList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchDealPreActvity.this);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchDealPreActvity.this);
+//        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -373,7 +318,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -388,7 +333,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
 
                     @Override
                     public void onError(Throwable e) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

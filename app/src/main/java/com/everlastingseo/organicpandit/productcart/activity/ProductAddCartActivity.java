@@ -125,7 +125,7 @@ public class ProductAddCartActivity extends AppCompatActivity implements View.On
                 public void addItem(AppEntity appEntity) {
 
                     if (itemSize >= 9) {
-                        ApplicationConstatnt.getDialog(mContext, "Response", "Greater then 9 item not Allowed");
+                        ApplicationConstatnt.getDialog(mContext, "", "Greater then 9 item not Allowed");
                     } else {
                         itemSize = itemSize + 1;
                         double afteraddTotalAmount = totalAmount + Double.valueOf(appEntity.getpPrice());
@@ -375,7 +375,7 @@ public class ProductAddCartActivity extends AppCompatActivity implements View.On
 
 
                 } else {
-                    ApplicationConstatnt.getDialog(mContext, "Response", "Item not found");
+                    ApplicationConstatnt.getDialog(mContext, "", "Item not found");
 
                 }
                 break;
@@ -395,11 +395,11 @@ public class ProductAddCartActivity extends AppCompatActivity implements View.On
                         progressDialog.dismiss();
 
                         if (!loginResponse.getResponse().getData().getSuccess()) {
-                            ApplicationConstatnt.getDialog(mContext, "Response", loginResponse.getResponse().getData().getMessage());
+                            ApplicationConstatnt.getDialog(mContext, "", loginResponse.getResponse().getData().getMessage());
                         } else {
                             Intent intent=new Intent(mContext, ProceedToPayActivity.class);
                             intent.putExtra("TotalAmount",loginResponse.getResponse().getData().getData().getPaymentDetails().getAmount());
-                            intent.putExtra("Data",loginResponse);
+                            intent.putExtra("RegistrationResponseDataData",loginResponse);
 
                             startActivity(intent);
                             ProductAddCartActivity.this.finish();

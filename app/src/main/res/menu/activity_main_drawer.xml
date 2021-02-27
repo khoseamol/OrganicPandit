@@ -25,6 +25,10 @@
     <item android:title="Communicate">
         <menu>
             <item
+                android:id="@+id/addproduct"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Add Product" />
+            <item
                 android:id="@+id/nav_social"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Social Media" />

@@ -169,11 +169,11 @@ public class LoginActvity extends AppCompatActivity implements View.OnClickListe
                             PrefUtils.saveToPrefs(mContext, "Mobile", loginResponse.getData().getMobileNo());
                             PrefUtils.saveToPrefs(mContext, "UserTYPE_ID", UserTypeID);
                             PrefUtils.saveToPrefs(mContext, "userToken", loginResponse.getUserToken());
-                            PrefUtils.saveToPrefs(mContext, "Is_subscription", loginResponse.getData().getIs_subscription());
+//                            PrefUtils.saveToPrefs(mContext, "Is_subscription", loginResponse.getData().getIs_subscription());
                             Intent intent = new Intent(mContext, DashBoardActivity.class);
                             startActivity(intent);
                         } else {
-                            ApplicationConstatnt.getDialog(mContext, "Respose", loginResponse.getMessage());
+                            ApplicationConstatnt.getDialog(mContext, "", loginResponse.getMessage());
                         }
                     }
 

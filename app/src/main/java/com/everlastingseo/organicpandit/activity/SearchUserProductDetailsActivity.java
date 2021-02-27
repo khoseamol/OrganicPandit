@@ -152,7 +152,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
 
                             } else {
                                 mLinarProductDetail.setVisibility(View.GONE);
-                                mTXTMAINProductDetails.setText("Product Details - No Data Available");
+                                mTXTMAINProductDetails.setText("Product Details - No RegistrationResponseDataData Available");
                                 mRecycleviewProductDetails.setVisibility(View.GONE);
                             }
                             if (userTypeResponse.getData().getUserCropList().size() > 0) {
@@ -163,7 +163,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
 
                             } else {
                                 mLinearCropInspectionDetails.setVisibility(View.GONE);
-                                mTXTMAINCropInspectionDetails.setText("Crop Inspection Details - No Data Available");
+                                mTXTMAINCropInspectionDetails.setText("Crop Inspection Details - No RegistrationResponseDataData Available");
                                 mRecycleviewCropInspectionDetails.setVisibility(View.GONE);
                             }
 
@@ -176,7 +176,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             } else {
                                 mLinearInputOrganicDetails.setVisibility(View.GONE);
 
-                                mTXTMAINInputOrganicDetails.setText("Input Organic Details - No Data Available");
+                                mTXTMAINInputOrganicDetails.setText("Input Organic Details - No RegistrationResponseDataData Available");
                                 mRecycleviewInputOrganicDetails.setVisibility(View.GONE);
                             }
 
@@ -189,7 +189,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             } else {
 
                                 mLinearsoilDetails.setVisibility(View.GONE);
-                                mTxtMainSoilDetails.setText("Soil Details - No Data Available");
+                                mTxtMainSoilDetails.setText("Soil Details - No RegistrationResponseDataData Available");
                                 mRecycleviewsoilDetails.setVisibility(View.GONE);
                             }
                             if (userTypeResponse.getData().getUserMicroList().size() > 0) {
@@ -201,13 +201,13 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             } else {
 
                                 mLinearmicronutrientDetails.setVisibility(View.GONE);
-                                mTxtMainmicronutrientDetails.setText("Micro Nutrients Details - No Data Available");
+                                mTxtMainmicronutrientDetails.setText("Micro Nutrients Details - No RegistrationResponseDataData Available");
                                 mRecycleviewmicronutrientDetails.setVisibility(View.GONE);
                             }
 
 
                         } else {
-                            ApplicationConstatnt.getDialog(mContext, "Response", userTypeResponse.getMessage());
+                            ApplicationConstatnt.getDialog(mContext, "", userTypeResponse.getMessage());
 
                         }
                     }

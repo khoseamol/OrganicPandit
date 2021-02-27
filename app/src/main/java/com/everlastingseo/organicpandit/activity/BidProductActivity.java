@@ -94,7 +94,15 @@ public class BidProductActivity extends AppCompatActivity implements View.OnClic
         mTxtPrice.setText("Total : " + mContext.getResources().getString(R.string.Rs) + " " + postRequirmentData.getTotalPrice());
         mTxtAddress.setText("Address : " + postRequirmentData.getDeliveryAddress());
         mTxtPaymnetTerms.setText("Pay Terms : " + postRequirmentData.getPaymentTerms());
-        mTxtCertification.setText("Certification  : " + postRequirmentData.getCertificationId());
+
+        if(postRequirmentData.getCertification_name()!=null){
+            mTxtCertification.setText("Certification  : " + postRequirmentData.getCertification_name());
+
+        }else {
+            mTxtCertification.setText("Certification  : " + " NA ");
+
+        }
+
         mTxtOtherDetails.setText("Details  : " + postRequirmentData.getOtherDetails());
 
 
@@ -128,16 +136,16 @@ public class BidProductActivity extends AppCompatActivity implements View.OnClic
 
                         if (userTypeResponse.getSuccess()) {
                             if (userTypeResponse.getSuccess()) {
-                                ApplicationConstatnt.getDialog(mContext, "Response", userTypeResponse.getMessage());
+                                ApplicationConstatnt.getDialog(mContext, "", userTypeResponse.getMessage());
                                 mEditAmount.setText("");
                                 mEditCommit.setText("");
                             } else {
-                                ApplicationConstatnt.getDialog(mContext, "Response", userTypeResponse.getMessage());
+                                ApplicationConstatnt.getDialog(mContext, "", userTypeResponse.getMessage());
                             }
 
 
                         } else {
-                            ApplicationConstatnt.getDialog(mContext, "Response", "Response getting null");
+                            ApplicationConstatnt.getDialog(mContext, "", userTypeResponse.getMessage());
                         }
 
 

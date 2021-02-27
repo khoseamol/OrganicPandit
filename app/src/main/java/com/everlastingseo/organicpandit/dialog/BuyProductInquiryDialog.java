@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -22,6 +23,7 @@ import com.everlastingseo.organicpandit.helper.ApiService;
 import com.everlastingseo.organicpandit.helper.ApplicationConstatnt;
 import com.everlastingseo.organicpandit.helper.CustomProgressDialog;
 import com.everlastingseo.organicpandit.pojo.buyproductinquiry.BuyProductinquryResponse;
+import com.everlastingseo.organicpandit.pojo.sellproduct.SellProductResponseData;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -31,15 +33,22 @@ public class BuyProductInquiryDialog extends Dialog implements DialogInterface.O
     Context mContext;
     String pID = "";
     String uID = "";
+    private TextView mTxtProductName;
+    private TextView mTxtQantity;
+    private TextView mTxtTotalPrice;
+    private TextView mTxtExpectedprice;
+    private TextView mTxtAddress;
+    private TextView mTxtCategoryname;
 
-
+    SellProductResponseData mSellProductResponseData;
     ApiService apiService;
 
-    public BuyProductInquiryDialog(Context context, String pId, String uID) {
+    public BuyProductInquiryDialog(Context context, String pId, String uID, SellProductResponseData mSellProductResponseData) {
         super(context);
         this.mContext = context;
         this.pID = pId;
         this.uID = uID;
+        this.mSellProductResponseData=mSellProductResponseData;
     }
 
     private void hideKeyboard() {
@@ -65,6 +74,18 @@ public class BuyProductInquiryDialog extends Dialog implements DialogInterface.O
         apiService = ApiClient.getClient(mContext)
                 .create(ApiService.class);
 
+        mTxtProductName = (TextView) findViewById(R.id.TxtProductName);
+        mTxtQantity = (TextView) findViewById(R.id.TxtQantity);
+        mTxtTotalPrice = (TextView) findViewById(R.id.TxtTotalPrice);
+        mTxtExpectedprice = (TextView) findViewById(R.id.TxtExpectedprice);
+        mTxtAddress = (TextView) findViewById(R.id.TxtAddress);
+        mTxtCategoryname = (TextView) findViewById(R.id.TxtCategoryname);
+        mTxtProductName.setText("Product Name : "+mSellProductResponseData.getProductName());
+        mTxtQantity.setText("Quantity ( in Kg ) : "+mSellProductResponseData.getSellQuantity());
+        mTxtTotalPrice.setText("Total price : "+mSellProductResponseData.getTotalPrice());
+        mTxtExpectedprice.setText("Expected price : "+mSellProductResponseData.getPrice());
+        mTxtCategoryname.setText("Category Name : "+mSellProductResponseData.getCategoryName());
+        mTxtAddress.setText("Delivery Address : "+mSellProductResponseData.getAddress());
 
         final EditText mEditDescription = (EditText) findViewById(R.id.EditDescription);
         Button mBtnSend = (Button) findViewById(R.id.BtnSend);
@@ -97,7 +118,7 @@ public class BuyProductInquiryDialog extends Dialog implements DialogInterface.O
                         if (loginResponse.getSuccess()) {
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
                             alertDialogBuilder.setMessage(loginResponse.getMessage());
-                            alertDialogBuilder.setTitle("Response");
+                            alertDialogBuilder.setTitle("");
                             alertDialogBuilder.setPositiveButton("yes",
                                     new DialogInterface.OnClickListener() {
                                         @Override
@@ -109,7 +130,7 @@ public class BuyProductInquiryDialog extends Dialog implements DialogInterface.O
                             AlertDialog alertDialog = alertDialogBuilder.create();
                             alertDialog.show();
                         } else {
-                            ApplicationConstatnt.getDialog(mContext, "Respose", loginResponse.getMessage());
+                            ApplicationConstatnt.getDialog(mContext, "", loginResponse.getMessage());
                         }
                     }
 

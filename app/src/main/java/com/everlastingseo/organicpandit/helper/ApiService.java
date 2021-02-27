@@ -11,16 +11,19 @@ import com.everlastingseo.organicpandit.pojo.fetchuserdata.FetchUserDataResponse
 import com.everlastingseo.organicpandit.pojo.fetchuserdata_details.UserDataDetailsResponse;
 import com.everlastingseo.organicpandit.pojo.login.LoginResponse;
 import com.everlastingseo.organicpandit.pojo.organicInput_product.OrganicProductREsponse;
+import com.everlastingseo.organicpandit.pojo.otp.OTPResponse;
 import com.everlastingseo.organicpandit.pojo.postrequirment.PostReqirmentResponse;
 import com.everlastingseo.organicpandit.pojo.preparepaymentgatway.ResponsePrepareForPaymentGateway;
 import com.everlastingseo.organicpandit.pojo.product.ProductResponse;
 import com.everlastingseo.organicpandit.pojo.product_category.CategoryResponse;
+import com.everlastingseo.organicpandit.pojo.registrationpojo.RegistrationResponse;
 import com.everlastingseo.organicpandit.pojo.searchuser_wise.SearchResponse;
 import com.everlastingseo.organicpandit.pojo.sellproduct.SellProductResponse;
 import com.everlastingseo.organicpandit.pojo.sellproductdetails.SellProductDetailsResponse;
 import com.everlastingseo.organicpandit.pojo.shopdata.ShopDataDetails;
 import com.everlastingseo.organicpandit.pojo.sliderimage.SliderImageResponse;
 import com.everlastingseo.organicpandit.pojo.statelist.StateResponse;
+import com.everlastingseo.organicpandit.pojo.userfetchproduct.UserAddProductFetchRespose;
 import com.everlastingseo.organicpandit.pojo.usertypr.UserTypeResponse;
 import com.everlastingseo.organicpandit.pojo.worth_details.WorthResponse;
 import com.google.gson.JsonObject;
@@ -70,13 +73,13 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("api-v1/user/registration")
-    Single<FetchUserDataResponse> getregistration(@Field("user_type_id") String user_type_id,
-                                                  @Field("fullname") String fullname, @Field("username") String username,
-                                                  @Field("email_id") String emailid, @Field("mobile_no") String mobile,
-                                                  @Field("password") String password, @Field("confirm_password") String confimpassword,
-                                                  @Field("address") String address, @Field("country_id") String contryID,
-                                                  @Field("state_id") String stateID, @Field("city_id") String cityID,
-                                                  @Field("certification_id") String cerificatio, @Field("agency_id") String agencyID);
+    Single<RegistrationResponse> getregistration(@Field("user_type_id") String user_type_id,
+                                                 @Field("fullname") String fullname, @Field("username") String username,
+                                                 @Field("email_id") String emailid, @Field("mobile_no") String mobile,
+                                                 @Field("password") String password, @Field("confirm_password") String confimpassword,
+                                                 @Field("address") String address, @Field("country_id") String contryID,
+                                                 @Field("state_id") String stateID, @Field("city_id") String cityID,
+                                                 @Field("certification_id") String cerificatio, @Field("agency_id") String agencyID);
 
     @GET("api-v1/fetch-certifications")
     Single<CertificteResponse> getcertificate();
@@ -151,7 +154,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("api-v1/post-requirement/insert")
-    Single<CityRespose> getCreatePost(@Field("user_id") String userid,
+    Single<LoginResponse> getCreatePost(@Field("user_id") String userid,
                                       @Field("company_name") String companyname, @Field("product_id") String product_id,
                                       @Field("quality_specification") String qualityspeci, @Field("from_date") String framdate,
                                       @Field("to_date") String todate, @Field("price") String price,
@@ -192,5 +195,14 @@ public interface ApiService {
 
     @POST("api-v1/organic-service-portal")
     Single<ResponsePrepareForPaymentGateway> sendPaymentresponse(@Body JsonObject jsonObject);
+
+    @POST("api-v1/organic-service-portal")
+    Single<UserAddProductFetchRespose> getuserproductcategory(@Body JsonObject jsonObject);
+
+    @POST("api-v1/organic-service-portal")
+    Single<UserAddProductFetchRespose> getAddProduct(@Body JsonObject jsonObject);
+
+    @POST("api-v1/organic-service-portal")
+    Single<OTPResponse> sendotp(@Body JsonObject jsonObject);
 
 }

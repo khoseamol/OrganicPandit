@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationConstatnt {
-    public static final String BASE_URL = "http://organicpandit.com/";
+//    public static final String BASE_URL = "http://organicpandit.com/";
+    public static final String BASE_URL = "http://demo.organicpandit.com/";
     public static final String BP_CART_TYPE_ID_1 = "BP";
     public static final String EOI_CART_TYPE_ID_2 = "EOI";
     public static final String ES_CART_TYPE_ID_3 = "ES";

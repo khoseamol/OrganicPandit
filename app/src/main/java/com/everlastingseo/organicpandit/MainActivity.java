@@ -17,6 +17,8 @@ import com.everlastingseo.organicpandit.activity.AboutUsActivity;
 import com.everlastingseo.organicpandit.activity.ContactUsActivity;
 import com.everlastingseo.organicpandit.activity.LoginActvity;
 import com.everlastingseo.organicpandit.activity.SocialMediaActivity;
+import com.everlastingseo.organicpandit.addproduct.UserAddProductActivity;
+import com.everlastingseo.organicpandit.helper.ApplicationConstatnt;
 import com.everlastingseo.organicpandit.helper.PrefUtils;
 import com.google.android.material.navigation.NavigationView;
 
@@ -98,6 +100,17 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_social) {
             Intent intent = new Intent(MainActivity.this, SocialMediaActivity.class);
             startActivity(intent);
+
+        } else if (id == R.id.addproduct) {
+
+            if (PrefUtils.getFromPrefs(MainActivity.this, "UserTYPE_ID", "").equals("1") ||
+                    PrefUtils.getFromPrefs(MainActivity.this, "UserTYPE_ID", "").equals("5")) {
+                Intent intent = new Intent(MainActivity.this, UserAddProductActivity.class);
+                startActivity(intent);
+            } else {
+                ApplicationConstatnt.getDialog(MainActivity.this, "", "You are not Authorised this service");
+
+            }
 
         }
 

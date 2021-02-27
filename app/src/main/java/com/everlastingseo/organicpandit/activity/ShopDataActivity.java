@@ -8,6 +8,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,7 +63,7 @@ public class ShopDataActivity extends AppCompatActivity {
         appDao = Room.databaseBuilder(mContext, AppDatabase.class, mContext.getString(R.string.app_name)).allowMainThreadQueries().build().taskDao();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        setTitle(getIntent().getStringExtra("TIITLE") + " Data");
+        setTitle(getIntent().getStringExtra("TIITLE") + "");
         vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
         mRelativeToop = (RelativeLayout) findViewById(R.id.RelativeToop);
@@ -83,7 +85,29 @@ public class ShopDataActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.cart, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.cartAction) {
+            Intent intent = new Intent(mContext, ProductAddCartActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     private void callshopdata(String userid) {
         final ProgressDialog progressDialog = CustomProgressDialog.ctor(ShopDataActivity.this);
         progressDialog.show();
@@ -114,7 +138,7 @@ public class ShopDataActivity extends AppCompatActivity {
 
                                                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
                                                 alertDialogBuilder.setMessage("Product is already present in cart");
-                                                alertDialogBuilder.setTitle("Response");
+                                                alertDialogBuilder.setTitle("");
                                                 alertDialogBuilder.setPositiveButton("View cart",
                                                         new DialogInterface.OnClickListener() {
                                                             @Override
@@ -154,14 +178,14 @@ public class ShopDataActivity extends AppCompatActivity {
                                                     appDao.insert(model);
                                                     ApplicationConstatnt.toast(mContext, "Item Added");
                                                 } else {
-                                                    ApplicationConstatnt.getDialog(mContext, "Response", "Price null");
+                                                    ApplicationConstatnt.getDialog(mContext, "", "Price null");
                                                 }
                                             }
 
 
 
                                         } else {
-                                            ApplicationConstatnt.getDialog(mContext, "Response", "More then 9 item not allowed");
+                                            ApplicationConstatnt.getDialog(mContext, "", "More then 9 item not allowed");
                                         }
 
                                     }

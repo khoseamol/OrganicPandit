@@ -8,6 +8,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -62,7 +64,7 @@ public class OrganicInputProductActivity extends AppCompatActivity {
         vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        setTitle(getIntent().getStringExtra("TIITLE") + " Data");
+        setTitle(getIntent().getStringExtra("TIITLE") + " ");
 
         mRelativeToop = (RelativeLayout) findViewById(R.id.RelativeToop);
         mTxtName = (TextView) findViewById(R.id.TxtName);
@@ -83,7 +85,29 @@ public class OrganicInputProductActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.cart, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.cartAction) {
+            Intent intent = new Intent(mContext, ProductAddCartActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     private void callOrganicData(String userid) {
         final ProgressDialog progressDialog = CustomProgressDialog.ctor(OrganicInputProductActivity.this);
         progressDialog.show();
@@ -154,13 +178,13 @@ public class OrganicInputProductActivity extends AppCompatActivity {
                                                             appDao.insert(model);
                                                             ApplicationConstatnt.toast(mContext, "Item Added");
                                                         }else {
-                                                            ApplicationConstatnt.getDialog(mContext, "Response", "Price null");
+                                                            ApplicationConstatnt.getDialog(mContext, "", "Price null");
 
                                                         }
                                                     }
 
                                                 } else {
-                                                    ApplicationConstatnt.getDialog(mContext, "Response", "More then 9 item not allowed");
+                                                    ApplicationConstatnt.getDialog(mContext, "", "More then 9 item not allowed");
                                                 }
                                             }
                                         });

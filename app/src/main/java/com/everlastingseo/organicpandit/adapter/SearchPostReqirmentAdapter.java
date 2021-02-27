@@ -85,7 +85,15 @@ public class SearchPostReqirmentAdapter extends RecyclerView.Adapter<RecyclerVie
                 viewHolder.mTxtPaymenttrems.setText("Payment Terms  : " + movieResults.get(position).getPaymentTerms());
                 viewHolder.mTxtRate.setText("Price : " + context.getResources().getString(R.string.Rs) + " " + movieResults.get(position).getPrice());
                 viewHolder.mTxtProductName.setText("Name : " + movieResults.get(position).getProductName());
-                viewHolder.mTxtBid.setText("Bid " + "( " + movieResults.get(position).getTotalBids() + ")");
+
+                if(movieResults.get(position).getTotalBids()!=null){
+                    viewHolder.mTxtBid.setText("Bid " + "( " + movieResults.get(position).getTotalBids() + ")");
+
+                }else {
+                    viewHolder.mTxtBid.setText("Bid " + " 0 ");
+
+                }
+
                 viewHolder.mTxtSpecification.setText("Specification : " + movieResults.get(position).getQualitySpecification());
                 viewHolder.mTxtBid.setOnClickListener(new View.OnClickListener() {
                     @Override

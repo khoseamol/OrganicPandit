@@ -71,10 +71,10 @@ public class ActivityForgotActivity extends AppCompatActivity {
                     public void onSuccess(ForgotpasswordResponse loginResponse) {
                         progressDialog.dismiss();
                         if (loginResponse.getSuccess()) {
-                            ApplicationConstatnt.getDialog(ActivityForgotActivity.this, "Response", loginResponse.getMessage());
+                            ApplicationConstatnt.getDialog(ActivityForgotActivity.this, "", loginResponse.getMessage());
                             mEditUsername.setText("");
                         } else {
-                            ApplicationConstatnt.getDialog(ActivityForgotActivity.this, "Respose", loginResponse.getMessage());
+                            ApplicationConstatnt.getDialog(ActivityForgotActivity.this, "", loginResponse.getMessage());
                         }
                     }
 

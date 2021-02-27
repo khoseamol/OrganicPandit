@@ -319,7 +319,7 @@ CheckUPdate();
                     public void onSuccess(WorthResponse userTypeResponse) {
                         progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
-                            ApplicationConstatnt.getDialog(mContext, "Response", "Total : " + mContext.getResources().getString(R.string.Rs) + " " + userTypeResponse.getData().getTotalPrice());
+                            ApplicationConstatnt.getDialog(mContext, "", "Total : " + mContext.getResources().getString(R.string.Rs) + " " + userTypeResponse.getData().getTotalPrice());
                         } else {
                         }
                     }

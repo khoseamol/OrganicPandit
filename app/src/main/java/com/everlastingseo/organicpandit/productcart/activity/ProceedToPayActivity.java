@@ -135,7 +135,7 @@ public class ProceedToPayActivity extends AppCompatActivity implements View.OnCl
             case R.id.BtnConfirmPay:
                 if (mCheckboxAddress.isChecked()) {
                     ResponsePrepareForPaymentGateway loginResponse = new ResponsePrepareForPaymentGateway();
-                    loginResponse = (ResponsePrepareForPaymentGateway) this.getIntent().getSerializableExtra("Data");
+                    loginResponse = (ResponsePrepareForPaymentGateway) this.getIntent().getSerializableExtra("RegistrationResponseDataData");
 
                     Intent intentProceed = new Intent(ProceedToPayActivity.this, PWECouponsActivity.class);
                     intentProceed.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); // This is mandatory flag
@@ -164,7 +164,7 @@ public class ProceedToPayActivity extends AppCompatActivity implements View.OnCl
                     startActivityForResult(intentProceed, PWEStaticDataModel.PWE_REQUEST_CODE);
 
                 } else {
-                    ApplicationConstatnt.getDialog(mContext, "Response", "Please choose Address.");
+                    ApplicationConstatnt.getDialog(mContext, "", "Please choose Address.");
                 }
                 break;
 
@@ -206,11 +206,14 @@ public class ProceedToPayActivity extends AppCompatActivity implements View.OnCl
                             objAuth.addProperty(ApplicationConstatnt.Request_type, "user");
                             objAuth.addProperty(ApplicationConstatnt.Request_token, PrefUtils.getFromPrefs(mContext, "userToken", ""));
                             mainJsonObject.add(ApplicationConstatnt.Request_Auth, objAuth);
+
                             JsonObject objMethod = new JsonObject();
                             JsonObject jsonObject = new JsonParser().parse(payment_response).getAsJsonObject();
                             objMethod.addProperty(ApplicationConstatnt.Request_name, "ProductPaymentResponse");
                             mainJsonObject.add(ApplicationConstatnt.Request_method, objMethod);
+
                             objMethod.add(ApplicationConstatnt.Request_parameters, jsonObject);
+
 //                            ApplicationConstatnt.getDialog(mContext, "Response", result);
 
                             sendApiResponse(mainJsonObject);
@@ -247,7 +250,7 @@ public class ProceedToPayActivity extends AppCompatActivity implements View.OnCl
                        if(loginResponse!=null){
                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
                            alertDialogBuilder.setMessage(loginResponse.getResponse().getData().getMessage());
-                           alertDialogBuilder.setTitle("Response");
+                           alertDialogBuilder.setTitle("");
                            alertDialogBuilder.setPositiveButton("yes",
                                    new DialogInterface.OnClickListener() {
                                        @Override

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin10dp">
+
+        <Button
+            android:id="@+id/btnOTPSumbmit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_below="@+id/edotp"
+            android:layout_marginTop="@dimen/margin15dp"
+            android:background="@drawable/background"
+            android:backgroundTint="@color/colorAccent"
+            android:text="submit"
+            android:textColor="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/ImgOtp"
+            android:layout_width="@dimen/margin100dp"
+            android:layout_height="@dimen/margin150dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/otpverification">
+
+        </ImageView>
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/Imgclose"
+            android:layout_marginRight="@dimen/margin5dp"
+            android:layout_width="@dimen/margin_30dp"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/close_icon">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/TxtMobilenumberText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ImgOtp"
+            android:layout_margin="@dimen/margin10dp"
+            android:gravity="center"
+            android:text="The OTP has been sent to XXXXXXX028"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TxtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtMobilenumberText"
+            android:layout_margin="@dimen/margin10dp"
+            android:gravity="center"
+            android:text="Pleas enter the OTP in the below field to verify the account."
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edotp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtTitle"
+            android:layout_marginTop="@dimen/margin5dp"
+            android:textColorHint="@color/white">
+
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                android:id="@+id/EditOTP"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter OTP"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/textsize14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

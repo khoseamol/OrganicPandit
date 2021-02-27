@@ -133,8 +133,8 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
     }
 
     private void callCityList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(DeliveryAddressActivity.this);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(DeliveryAddressActivity.this);
+//        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -142,7 +142,7 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -157,7 +157,7 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
 
                     @Override
                     public void onError(Throwable e) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

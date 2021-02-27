@@ -4,8 +4,10 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +27,7 @@ import com.everlastingseo.organicpandit.helper.PrefUtils;
 import com.everlastingseo.organicpandit.model.SelectCertificateList;
 import com.everlastingseo.organicpandit.pojo.citylist.CityData;
 import com.everlastingseo.organicpandit.pojo.citylist.CityRespose;
+import com.everlastingseo.organicpandit.pojo.login.LoginResponse;
 import com.everlastingseo.organicpandit.pojo.product.ProductResponse;
 import com.everlastingseo.organicpandit.pojo.product.ProductResponseData;
 import com.everlastingseo.organicpandit.pojo.statelist.StateData;
@@ -250,7 +253,22 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
                 picker.show();
             }
         });
+        mEDitquantity.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     private void callProduct() {
@@ -293,31 +311,6 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
         mSpinnerselectcertificatio.setAdapter(adapter);
 
 
-
-        /*apiService.getcertificate()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<CertificteResponse>() {
-                    @Override
-                    public void onSuccess(CertificteResponse userTypeResponse) {
-                        if (userTypeResponse.getSuccess()) {
-                            certificateData.clear();
-//                            certificateData = userTypeResponse.getData();
-//                            CertificateData userTypeDatatest = new CertificateData();
-//                            userTypeDatatest.se("Select Certification");
-//                            certificateData.add(0, userTypeDatatest);
-//                            ArrayAdapter<CertificateData> adapter = new ArrayAdapter<CertificateData>(mContext, R.layout.spinner_item_textcolorblck, certificateData);
-//                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                            mSpinnerUserType.setAdapter(adapter);
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                    }
-                });*/
     }
 
     private void callStateList(String id) {
@@ -353,8 +346,8 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void callCityList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(PostDealActivity.this);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(PostDealActivity.this);
+//        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -362,7 +355,7 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -377,7 +370,7 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
 
                     @Override
                     public void onError(Throwable e) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -473,16 +466,29 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
         final ProgressDialog progressDialog = CustomProgressDialog.ctor(PostDealActivity.this);
         progressDialog.show();
 
-        apiService.getCreatePost(PrefUtils.getFromPrefs(mContext, "UserTYPE_ID", ""), companyname, product_id, qualityspeci, framdate, todate, price, quantity, totalprice,
+        apiService.getCreatePost(PrefUtils.getFromPrefs(mContext, "user_id", ""), companyname, product_id, qualityspeci, framdate, todate, price, quantity, totalprice,
                 deliveryaddress, pincode, paymentterms, stateId, cityId, logistic_id, certification_id, others)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<CityRespose>() {
+                .subscribeWith(new DisposableSingleObserver<LoginResponse>() {
                     @Override
-                    public void onSuccess(CityRespose userTypeResponse) {
+                    public void onSuccess(LoginResponse userTypeResponse) {
                         progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
-
+                            ApplicationConstatnt.getDialog(mContext, "", userTypeResponse.getMessage());
+                            mEditCompanyName.setText("");
+                            mEditquality_specification.setText("");
+                            mEditFromDate.setText("");
+                            mEditToDate.setText("");
+                            mEDitquantity.setText("");
+                            mEditprice.setText("");
+                            mEditToatalPrice.setText("");
+                            mEditdelivery_address.setText("");
+                            mEditdelivery_Pincode.setText("");
+                            mEditdelivery_PayemtTearms.setText("");
+                            mEditOther.setText("");
+                        }else {
+                            ApplicationConstatnt.getDialog(mContext,"" , userTypeResponse.getMessage());
                         }
                     }
 

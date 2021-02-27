@@ -238,6 +238,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
         callStateList("101");
         callcategory();
         callProduct();
+        doRefresh();
         mBtnSerchpost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -286,12 +287,12 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                         else isLastPage = true;
                     } else {
                         adapter.removeLoadingFooter();
-                        Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
 
                     }
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_LONG).show();
+//
                 }
 
             }
@@ -328,7 +329,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                     if (currentPage <= TOTAL_PAGES) adapter.addLoadingFooter();
                     else isLastPage = true;
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -386,91 +387,10 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
     }
 
 
-//    private void loadNextPage() {
-//        progressBar.setVisibility(View.VISIBLE);
-//        apiService.sellproductList(StateId, CityId, CATEGORYIDD, PRODUCTID, String.valueOf(currentPage))
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeWith(new DisposableSingleObserver<SellProductResponse>() {
-//                    @Override
-//                    public void onSuccess(SellProductResponse userTypeResponse) {
-//                        buyProductAdapter.removeLoadingFooter();
-//                        isLoading = false;
-//                        progressBar.setVisibility(View.GONE);
-//                        mTxtNoData.setVisibility(View.GONE);
-//
-//                        List<SellProductResponseData> results = userTypeResponse.getData();
-//                        buyProductAdapter.addAll(results);
-//
-//                        if (currentPage != TOTAL_PAGES) buyProductAdapter.addLoadingFooter();
-//                        else isLastPage = true;
-//
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//    }
-
-
-//    private void searchbuyproductData(String stateId, String cityId, String pageno) {
-//
-//
-//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(BuyProductMainActvity.this);
-//        progressDialog.show();
-//
-//        apiService.sellproductList(stateId, cityId, CATEGORYIDD, PRODUCTID, pageno)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeWith(new DisposableSingleObserver<SellProductResponse>() {
-//                    @Override
-//                    public void onSuccess(SellProductResponse userTypeResponse) {
-//                        progressDialog.dismiss();
-//                        List<SellProductResponseData> results = userTypeResponse.getData();
-//                        progressBar.setVisibility(View.GONE);
-//                        mTxtNoData.setVisibility(View.GONE);
-//
-//                        buyProductAdapter.addAll(results);
-//
-//                        if (currentPage <= TOTAL_PAGES) buyProductAdapter.addLoadingFooter();
-//                        else isLastPage = true;
-//
-//
-////                        if (userTypeResponse.getSuccess()) {
-////                            if (userTypeResponse.getData().size() > 0) {
-////                                mTxtNoData.setVisibility(View.GONE);
-////                                mSerchDataRecycleView.setVisibility(View.VISIBLE);
-////                                buyProductAdapter = new BuyProductAdapter(mContext, userTypeResponse.getData());
-////                                mSerchDataRecycleView.setAdapter(buyProductAdapter);
-////                            } else {
-////                                mTxtNoData.setVisibility(View.VISIBLE);
-////                                mSerchDataRecycleView.setVisibility(View.GONE);
-////                                mTxtNoData.setText(userTypeResponse.getMessage());
-////                            }
-////                        } else {
-////                            mSerchDataRecycleView.setVisibility(View.GONE);
-////                            mTxtNoData.setVisibility(View.VISIBLE);
-////                            mTxtNoData.setText(userTypeResponse.getMessage());
-////                        }
-//
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        progressDialog.dismiss();
-//                        Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//    }
 
     private void callCityList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(BuyProductMainActvity.this);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(BuyProductMainActvity.this);
+//        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -478,7 +398,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -493,7 +413,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
 
                     @Override
                     public void onError(Throwable e) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

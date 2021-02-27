@@ -125,7 +125,7 @@ public class ProductInquiryDialog extends Dialog implements DialogInterface.OnCl
                         if (loginResponse.getSuccess()) {
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
                             alertDialogBuilder.setMessage(loginResponse.getMessage());
-                            alertDialogBuilder.setTitle("Response");
+                            alertDialogBuilder.setTitle("");
                             alertDialogBuilder.setPositiveButton("yes",
                                     new DialogInterface.OnClickListener() {
                                         @Override
@@ -137,7 +137,7 @@ public class ProductInquiryDialog extends Dialog implements DialogInterface.OnCl
                             AlertDialog alertDialog = alertDialogBuilder.create();
                             alertDialog.show();
                         } else {
-                            ApplicationConstatnt.getDialog(mContext, "Respose", loginResponse.getMessage());
+                            ApplicationConstatnt.getDialog(mContext, "", loginResponse.getMessage());
                         }
                     }
 

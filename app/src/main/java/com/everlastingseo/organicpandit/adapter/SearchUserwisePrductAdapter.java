@@ -126,7 +126,7 @@ public class SearchUserwisePrductAdapter extends RecyclerView.Adapter<RecyclerVi
                             intent.putExtra("NAME", data.get(position).getFullname());
                             context.startActivity(intent);
                         } else {
-                            ApplicationConstatnt.getDialog(context, "Response", "Not Allowed");
+                            ApplicationConstatnt.getDialog(context, "", "Not Allowed");
                         }
 
                     }
@@ -308,7 +308,14 @@ public void removeprogress(){
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    OnClick.getViewData(data.get(getAdapterPosition()));
+
+
+                    if (PrefUtils.getFromPrefs(context, "Is_subscription", "").equals("1")) {
+                        OnClick.getViewData(data.get(getAdapterPosition()));
+                    } else {
+                        callsubScriptionDialog();
+                    }
+
                 }
             });
         }

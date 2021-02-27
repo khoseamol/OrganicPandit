@@ -215,7 +215,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
     private void doRefresh() {
 
         if (StateId == null || CityId == null) {
-            ApplicationConstatnt.getDialog(mContext, "Response", "Select State and City");
+            ApplicationConstatnt.getDialog(mContext, "", "Select State and City");
         } else {
             progressBar.setVisibility(View.VISIBLE);
             if (callTopRatedMoviesApi().isExecuted())
@@ -252,7 +252,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
     private void loadFirstPage() {
 
         if (StateId == null || CityId == null) {
-            ApplicationConstatnt.getDialog(mContext, "Response", "Select State and City");
+            ApplicationConstatnt.getDialog(mContext, "", "Select State and City");
         } else {
             Log.d(TAG, "loadFirstPage: ");
             hideErrorView();
@@ -274,7 +274,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
                         if (currentPage <= TOTAL_PAGES) adapter.addLoadingFooter();
                         else isLastPage = true;
                     } catch (Exception e) {
-                        Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -308,10 +308,10 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
                         else isLastPage = true;
                     } else {
                         adapter.removeLoadingFooter();
-                        Toast.makeText(mContext, "Data not found", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "RegistrationResponseDataData not found", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "Data not found", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext, "RegistrationResponseDataData not found", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -327,8 +327,8 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
 
 
     private void callCityList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchUserProductActvity.this);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchUserProductActvity.this);
+//        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -336,7 +336,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -351,7 +351,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
 
                     @Override
                     public void onError(Throwable e) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addproduct.UserAddProductActivity">
+
+
+
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Product Category"
+                    android:textSize="@dimen/textsize16sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:background="@drawable/background">
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/SpinnerProductCategoryList"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:padding="@dimen/margin8dp" >
+
+                    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin15dp"
+                    android:background="@drawable/background">
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/SpinnerProductList"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:padding="@dimen/margin8dp" >
+
+                    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin15dp"
+                    android:background="@drawable/background">
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/SpinnerProductQuantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:entries="@array/productquantity"
+                        android:padding="@dimen/margin8dp" >
+
+                    </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                </RelativeLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin15dp"
+
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/textsize14sp">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                        android:id="@+id/EditproductDescription"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Description"
+                        android:inputType="text"
+                        android:lines="2"
+                        android:textColor="@color/faintblack"
+                        android:textSize="@dimen/textsize14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin15dp"
+
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/textsize14sp">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                        android:id="@+id/EditproductQuality"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Quality"
+                        android:inputType="text"
+                        android:lines="2"
+                        android:textColor="@color/faintblack"
+                        android:textSize="@dimen/textsize14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/margin15dp"
+                    android:weightSum="2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/textsize14sp">
+
+                        <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                            android:id="@+id/TxtfromDate"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="From Date"
+                            android:inputType="text"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:textColor="@color/faintblack"
+                            android:textSize="@dimen/textsize14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin10dp"
+
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/textsize14sp">
+
+                        <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                            android:id="@+id/TxtTodate"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="To Date"
+                            android:focusable="false"
+                            android:inputType="text"
+                            android:editable="false"
+                            android:textColor="@color/faintblack"
+                            android:textSize="@dimen/textsize14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin15dp"
+
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/textsize14sp">
+
+                    <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
+                        android:id="@+id/Editprice"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Price"
+                        android:inputType="number"
+                        android:lines="2"
+                        android:textColor="@color/faintblack"
+                        android:textSize="@dimen/textsize14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/margin10dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add Images and expriry details"
+                        android:textSize="@dimen/textsize16sp" />
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/margin10dp"
+                        android:layout_marginTop="@dimen/margin10dp"
+                        android:src="@mipmap/ic_launcher"
+                        android:id="@+id/imgfromcamerandgallery1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/margin100dp" />
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/TxtFromDate"
+                            android:layout_marginTop="@dimen/margin10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="From Date "
+                            android:textSize="@dimen/textsize16sp" />
+                        <TextView
+                            android:textColor="@color/black"
+
+                            android:id="@+id/TxtToDate"
+                            android:layout_marginTop="@dimen/margin_20dp"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="From Date "
+                            android:textSize="@dimen/textsize16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/BtnSubmit"
+                    android:layout_marginTop="@dimen/margin_30dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:textStyle="bold"
+                    android:text="Submit"
+                    android:textColor="@color/white"
+                    android:background="@color/colorAccent"
+                    android:layout_height="@dimen/margin40dp"/>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -50,7 +50,7 @@ public class PreRegistrationActvity extends AppCompatActivity implements View.On
         DashboardServiceModel service1 = new DashboardServiceModel("1","Farmer", R.drawable.icon_farmer);
         DashboardServiceModel service2 = new DashboardServiceModel("2","FPO", R.drawable.icon_fpo);
         DashboardServiceModel service3 = new DashboardServiceModel("3","Trader", R.drawable.icon_trader);
-        DashboardServiceModel service4 = new DashboardServiceModel("4","Professor", R.drawable.icon_processor);
+        DashboardServiceModel service4 = new DashboardServiceModel("4","Processor", R.drawable.icon_processor);
         DashboardServiceModel service5 = new DashboardServiceModel("5","BUYER", R.drawable.icon_buyer);
         DashboardServiceModel service6 = new DashboardServiceModel("6","Organic Consultant", R.drawable.icon_organic_consultant);
         DashboardServiceModel service7 = new DashboardServiceModel("18","NGO", R.drawable.icon_ngo);
