@@ -399,7 +399,7 @@ public class ProductAddCartActivity extends AppCompatActivity implements View.On
                         } else {
                             Intent intent=new Intent(mContext, ProceedToPayActivity.class);
                             intent.putExtra("TotalAmount",loginResponse.getResponse().getData().getData().getPaymentDetails().getAmount());
-                            intent.putExtra("RegistrationResponseDataData",loginResponse);
+                            intent.putExtra("Data",loginResponse);
 
                             startActivity(intent);
                             ProductAddCartActivity.this.finish();

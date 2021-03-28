@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+
+    android:background="@color/faintblack"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/faintblack"
+    android:layout_above="@+id/TxtAlreadyLogin"
     android:orientation="vertical">
 
     <LinearLayout
@@ -50,4 +58,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin10dp" />
+
+
 </LinearLayout>
+    <com.everlastingseo.organicpandit.utils.font.CustomBoldTextView
+        android:id="@+id/TxtAlreadyLogin"
+        android:layout_marginBottom="@dimen/margin10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:gravity="end"
+        android:layout_marginRight="@dimen/margin10dp"
+        android:text="Already exists ?  Login here"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/textsize15sp" />
+</RelativeLayout>

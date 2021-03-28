@@ -38,4 +38,5 @@
     <dimen name="margin150dp">150dp</dimen>
     <dimen name="margin100dp">100dp</dimen>
     <dimen name="margin35dp">35dp</dimen>
+    <dimen name="margin3dp">3dp</dimen>
 </resources>

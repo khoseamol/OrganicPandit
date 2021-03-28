@@ -117,7 +117,7 @@
             android:layout_marginTop="@dimen/margin10dp"
             android:layout_marginRight="@dimen/margin15dp"
             android:gravity="right"
-            android:text="Change Address"
+            android:text="Add Address"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/textsize16sp" />
 

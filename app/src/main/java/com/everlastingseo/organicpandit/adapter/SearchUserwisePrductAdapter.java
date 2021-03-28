@@ -134,14 +134,14 @@ public class SearchUserwisePrductAdapter extends RecyclerView.Adapter<RecyclerVi
                 holder.mTxtView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (PrefUtils.getFromPrefs(context, "Is_subscription", "").equals("1")) {
+//                        if (PrefUtils.getFromPrefs(context, "Is_subscription", "").equals("1")) {
                             Intent intent = new Intent(context, SearchUserProductDetailsActivity.class);
                             intent.putExtra("TITLE", data.get(position).getFullname());
                             intent.putExtra("ID", data.get(position).getUserId());
                             context.startActivity(intent);
-                        } else {
-                            callsubScriptionDialog();
-                        }
+//                        } else {
+//                            callsubScriptionDialog();
+//                        }
 
 
                     }
@@ -149,12 +149,12 @@ public class SearchUserwisePrductAdapter extends RecyclerView.Adapter<RecyclerVi
                 holder.mTxtEnqiry.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (PrefUtils.getFromPrefs(context, "Is_subscription", "").equals("1")) {
+//                        if (PrefUtils.getFromPrefs(context, "Is_subscription", "").equals("1")) {
                             ProductInquiryDialog productInquiryDialog = new ProductInquiryDialog(context,data.get(position).getUserTypeId(),data.get(position).getUserId());
                             productInquiryDialog.show();
-                        } else {
-                            callsubScriptionDialog();
-                        }
+//                        } else {
+//                            callsubScriptionDialog();
+//                        }
 
 
                     }

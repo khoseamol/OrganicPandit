@@ -24,7 +24,7 @@ public class PaymentGatewayInitiate extends AppCompatActivity {
         ResponsePrepareForPaymentGateway responsePrepareForPaymentGateway = new ResponsePrepareForPaymentGateway();
 
         Intent intentProceed = new Intent(PaymentGatewayInitiate.this, PWECouponsActivity.class);
-        responsePrepareForPaymentGateway = (ResponsePrepareForPaymentGateway) this.getIntent().getSerializableExtra("RegistrationResponseDataData");
+        responsePrepareForPaymentGateway = (ResponsePrepareForPaymentGateway) this.getIntent().getSerializableExtra("Data");
         intentProceed.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); // This is mandatory flag
         intentProceed.putExtra("txnid", responsePrepareForPaymentGateway.getResponse().getData().getData().getPaymentDetails().getTxnid());
         intentProceed.putExtra("amount", Double.valueOf(responsePrepareForPaymentGateway.getResponse().getData().getData().getPaymentDetails().getAmount()));

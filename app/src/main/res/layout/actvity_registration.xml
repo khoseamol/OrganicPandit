@@ -260,10 +260,11 @@
                     android:layout_alignParentRight="true"
                     android:textColor="@color/colorAccent"
                     android:gravity="center"
+                    android:id="@+id/TxtCertificationValue"
                     android:layout_centerVertical="true"
                     android:layout_height="match_parent"
                     android:layout_marginRight="@dimen/margin10dp"
-                    android:text="True"/>
+                    android:text=""/>
 
             </RelativeLayout>
 

@@ -52,7 +52,7 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
     String CERTIFICATION_ID = "";
     String LOGISTIC_ID = "";
     String PRODUCT_ID = "";
-
+     ProgressDialog progressDialog ;
     List<ProductResponseData> productList = new ArrayList<>();
     AdapterView.OnItemSelectedListener listenerCity = new AdapterView.OnItemSelectedListener() {
         @Override
@@ -91,13 +91,14 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-            if (productList.size() > 0) {
 
-                PRODUCT_ID = listList.get(position).getId();
 
-            } else {
-
-            }
+//                try{
+                   PRODUCT_ID = productList.get(position).getId();
+//               }catch (Exception e){
+//                   e.printStackTrace();
+//
+//            }
         }
 
         @Override
@@ -180,6 +181,7 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
                 .create(ApiService.class);
 
         mEditCompanyName = (EditText) findViewById(R.id.EditCompanyName);
+        progressDialog = CustomProgressDialog.ctor(PostDealActivity.this);
 
         mEditdelivery_Pincode = (com.everlastingseo.organicpandit.utils.font.CustomNormalEditText) findViewById(R.id.Editdelivery_Pincode);
         mEditdelivery_PayemtTearms = (com.everlastingseo.organicpandit.utils.font.CustomNormalEditText) findViewById(R.id.Editdelivery_PayemtTearms);
@@ -314,7 +316,6 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void callStateList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(PostDealActivity.this);
         progressDialog.show();
 
         apiService.getstateList(id)
@@ -323,7 +324,7 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
                 .subscribeWith(new DisposableSingleObserver<StateResponse>() {
                     @Override
                     public void onSuccess(StateResponse userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             stateDataList.clear();
                             stateDataList = userTypeResponse.getData();
@@ -347,7 +348,7 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
 
     private void callCityList(String id) {
 //        final ProgressDialog progressDialog = CustomProgressDialog.ctor(PostDealActivity.this);
-//        progressDialog.show();
+        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -355,7 +356,7 @@ public class PostDealActivity extends AppCompatActivity implements View.OnClickL
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();

@@ -16,14 +16,12 @@ import androidx.fragment.app.Fragment;
 
 import com.easebuzz.payment.kit.PWECouponsActivity;
 import com.everlastingseo.organicpandit.R;
-import com.everlastingseo.organicpandit.activity.DashBoardActivity;
 import com.everlastingseo.organicpandit.helper.ApiClient;
 import com.everlastingseo.organicpandit.helper.ApiService;
 import com.everlastingseo.organicpandit.helper.ApplicationConstatnt;
 import com.everlastingseo.organicpandit.helper.CustomProgressDialog;
 import com.everlastingseo.organicpandit.helper.PrefUtils;
 import com.everlastingseo.organicpandit.pojo.preparepaymentgatway.ResponsePrepareForPaymentGateway;
-import com.everlastingseo.organicpandit.productcart.activity.ProceedToPayActivity;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -31,6 +29,7 @@ import datamodels.PWEStaticDataModel;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+
 
 public class StandredPlanFragment extends Fragment {
     Button mfreePlanBtn;
@@ -47,7 +46,7 @@ public class StandredPlanFragment extends Fragment {
 
     private void bindview(View view) {
         mfreePlanBtn = view.findViewById(R.id.BtnfreePlan);
-        mfreePlanBtn.setText(" " + getResources().getString(R.string.Rs) +  " 0 " + "- Free");
+        mfreePlanBtn.setText(" " + getResources().getString(R.string.Rs) + " 0 " + "- Free");
         apiService = ApiClient.getClient(getActivity())
                 .create(ApiService.class);
 
@@ -150,9 +149,7 @@ public class StandredPlanFragment extends Fragment {
     }
 
 
-
-
-        @Override
+    @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
@@ -206,7 +203,7 @@ public class StandredPlanFragment extends Fragment {
                     public void onSuccess(ResponsePrepareForPaymentGateway loginResponse) {
                         progressDialog.dismiss();
 
-                        if(loginResponse!=null){
+                        if (loginResponse != null) {
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
                             alertDialogBuilder.setMessage(loginResponse.getResponse().getData().getMessage());
                             alertDialogBuilder.setTitle("Response");
@@ -219,7 +216,7 @@ public class StandredPlanFragment extends Fragment {
                                     });
                             AlertDialog alertDialog = alertDialogBuilder.create();
                             alertDialog.show();
-                        }else {
+                        } else {
                             Toast.makeText(getActivity(), "Error ", Toast.LENGTH_SHORT).show();
 
                         }

@@ -82,6 +82,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
 
         }
     };
+    ProgressDialog progressDialog;
     private int TOTAL_PAGES = 1;
     private boolean isLoading = false;
     private boolean isLastPage = false;
@@ -131,6 +132,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         setTitle("Search " + getIntent().getStringExtra("TITLE"));
 
+         progressDialog = CustomProgressDialog.ctor(SearchUserProductActvity.this);
 
         rv = findViewById(R.id.main_recycler);
         progressBar = findViewById(R.id.main_progress);
@@ -254,7 +256,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
         if (StateId == null || CityId == null) {
             ApplicationConstatnt.getDialog(mContext, "", "Select State and City");
         } else {
-            Log.d(TAG, "loadFirstPage: ");
+//            Log.d(TAG, "loadFirstPage: ");
             hideErrorView();
             currentPage = PAGE_START;
             progressBar.setVisibility(View.VISIBLE);
@@ -290,7 +292,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
     }
 
     private void loadNextPage() {
-        Log.d(TAG, "loadNextPage: " + currentPage);
+//        Log.d(TAG, "loadNextPage: " + currentPage);
 
         callTopRatedMoviesApi().enqueue(new Callback<SearchResponse>() {
             @Override
@@ -327,8 +329,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
 
 
     private void callCityList(String id) {
-//        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchUserProductActvity.this);
-//        progressDialog.show();
+        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -336,7 +337,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -351,14 +352,13 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
 
                     @Override
                     public void onError(Throwable e) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void callStateList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchUserProductActvity.this);
         progressDialog.show();
 
         apiService.getstateList(id)
@@ -367,7 +367,7 @@ public class SearchUserProductActvity extends AppCompatActivity implements View.
                 .subscribeWith(new DisposableSingleObserver<StateResponse>() {
                     @Override
                     public void onSuccess(StateResponse userTypeResponse) {
-                        progressDialog.dismiss();
+
                         if (userTypeResponse.getSuccess()) {
                             stateDataList.clear();
                             stateDataList = userTypeResponse.getData();

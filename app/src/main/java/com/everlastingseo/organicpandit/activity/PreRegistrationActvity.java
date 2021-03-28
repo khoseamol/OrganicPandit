@@ -1,6 +1,7 @@
 package com.everlastingseo.organicpandit.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -37,8 +38,8 @@ public class PreRegistrationActvity extends AppCompatActivity implements View.On
 
     private void bindview() {
         mContext= PreRegistrationActvity.this;
-//        mTxtAlreadyLogin = (TextView) findViewById(R.id.TxtAlreadyLogin);
-//        mTxtAlreadyLogin.setOnClickListener(this);
+        mTxtAlreadyLogin = (TextView) findViewById(R.id.TxtAlreadyLogin);
+        mTxtAlreadyLogin.setOnClickListener(this);
         mServiceRecycleView = (RecyclerView) findViewById(R.id.ServiceRecycleView);
         mServiceRecycleView.setLayoutManager(new GridLayoutManager(mContext, 4));
         generateServiceModel();
@@ -88,15 +89,15 @@ public class PreRegistrationActvity extends AppCompatActivity implements View.On
     }
     @Override
     public void onClick(View view) {
-//        if (view.getId() == R.id.TxtAlreadyLogin) {
-//            Intent intent
-//                    = new Intent(PreRegistrationActvity.this, LoginActvity.class);
-//            startActivity(intent);
-//            finish();
-//
-//        } else {
-//
-//        }
+        if (view.getId() == R.id.TxtAlreadyLogin) {
+            Intent intent
+                    = new Intent(PreRegistrationActvity.this, LoginActvity.class);
+            startActivity(intent);
+            finish();
+
+        } else {
+
+        }
 
     }
 }

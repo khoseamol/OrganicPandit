@@ -73,21 +73,17 @@ public class BuyProductDetailsActivity extends AppCompatActivity implements View
         setContentView(R.layout.buyproduct_details);
         bindview();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.cart, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.cartAction) {
             Intent intent = new Intent(mContext, ProductAddCartActivity.class);
             startActivity(intent);
@@ -96,6 +92,7 @@ public class BuyProductDetailsActivity extends AppCompatActivity implements View
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -114,29 +111,29 @@ public class BuyProductDetailsActivity extends AppCompatActivity implements View
         setTitle("View Product Details");
         CallApiDetails(mSellProductResponseData.getSellProductId());
 
-        mTxtUserName = (TextView) findViewById(R.id.TxtUserName);
-        mTxtCategory = (TextView) findViewById(R.id.TxtCategory);
-        mTxtProduct = (TextView) findViewById(R.id.TxtProduct);
-        mTxtQuantity = (TextView) findViewById(R.id.TxtQuantity);
-        mTxtExpectedPrice = (TextView) findViewById(R.id.txtExpectedPrice);
-        mTxtTotalPrice = (TextView) findViewById(R.id.TxtTotalPrice);
-        mTxtCertificateAgency = (TextView) findViewById(R.id.TxtCertificateAgency);
-        mTxtVariety = (TextView) findViewById(R.id.TxtVariety);
-        mTxtColor = (TextView) findViewById(R.id.TxtColor);
-        mTxtCropYear = (TextView) findViewById(R.id.TxtCropYear);
-        mTxtBrokenratio = (TextView) findViewById(R.id.TxtBrokenratio);
-        mTxtMoisture = (TextView) findViewById(R.id.TxtMoisture);
-        mTxtSupplyquantity = (TextView) findViewById(R.id.TxtSupplyquantity);
-        mTxtPackagingType = (TextView) findViewById(R.id.TxtPackagingType);
-        mTxtProductDescription = (TextView) findViewById(R.id.TxtProductDescription);
-        mTXtd = (TextView) findViewById(R.id.TXtd);
-        mTxtDeliveryLocation = (TextView) findViewById(R.id.TxtDeliveryLocation);
-        mTxtState = (TextView) findViewById(R.id.TxtState);
-        mTxtLeadDay = (TextView) findViewById(R.id.TxtLeadDay);
-        mTxtDeliveryType = (TextView) findViewById(R.id.TxtDeliveryType);
-        mTxtOtherDetails = (TextView) findViewById(R.id.TxtOtherDetails);
-        mTxtAddtocart = (TextView) findViewById(R.id.TxtAddtocart);
-        mTxtAddEnqiry = (TextView) findViewById(R.id.TxtAddEnqiry);
+        mTxtUserName = findViewById(R.id.TxtUserName);
+        mTxtCategory = findViewById(R.id.TxtCategory);
+        mTxtProduct = findViewById(R.id.TxtProduct);
+        mTxtQuantity = findViewById(R.id.TxtQuantity);
+        mTxtExpectedPrice = findViewById(R.id.txtExpectedPrice);
+        mTxtTotalPrice = findViewById(R.id.TxtTotalPrice);
+        mTxtCertificateAgency = findViewById(R.id.TxtCertificateAgency);
+        mTxtVariety = findViewById(R.id.TxtVariety);
+        mTxtColor = findViewById(R.id.TxtColor);
+        mTxtCropYear = findViewById(R.id.TxtCropYear);
+        mTxtBrokenratio = findViewById(R.id.TxtBrokenratio);
+        mTxtMoisture = findViewById(R.id.TxtMoisture);
+        mTxtSupplyquantity = findViewById(R.id.TxtSupplyquantity);
+        mTxtPackagingType = findViewById(R.id.TxtPackagingType);
+        mTxtProductDescription = findViewById(R.id.TxtProductDescription);
+        mTXtd = findViewById(R.id.TXtd);
+        mTxtDeliveryLocation = findViewById(R.id.TxtDeliveryLocation);
+        mTxtState = findViewById(R.id.TxtState);
+        mTxtLeadDay = findViewById(R.id.TxtLeadDay);
+        mTxtDeliveryType = findViewById(R.id.TxtDeliveryType);
+        mTxtOtherDetails = findViewById(R.id.TxtOtherDetails);
+        mTxtAddtocart = findViewById(R.id.TxtAddtocart);
+        mTxtAddEnqiry = findViewById(R.id.TxtAddEnqiry);
 
         mTxtAddEnqiry.setOnClickListener(this);
         mTxtAddtocart.setOnClickListener(this);
@@ -171,12 +168,30 @@ public class BuyProductDetailsActivity extends AppCompatActivity implements View
                             mTxtSupplyquantity.setText("Supply Qty : " + userTypeResponse.getData().getSupplyQuantity());
                             mTxtPackagingType.setText("Package : " + userTypeResponse.getData().getPackagingType());
                             mTxtProductDescription.setText("Desc : " + userTypeResponse.getData().getProductDescription());
-                            mTXtd = (TextView) findViewById(R.id.TXtd);
-                            mTxtDeliveryLocation.setText("Delivery : " + userTypeResponse.getData().getDeliveryLocation());
-                            mTxtState.setText("State : " + userTypeResponse.getData().getStateName());
+                          if(userTypeResponse.getData().getDeliveryLocationName()!=null)
+                            mTxtDeliveryLocation.setText("Delivery : " + userTypeResponse.getData().getDeliveryLocationName());
+                          else
+                              mTxtDeliveryLocation.setText("Delivery : " + " NA ");
+
+                            mTxtState.setText("State : " + userTypeResponse.getData().getState_name());
                             mTxtLeadDay.setText("LeadDay : " + userTypeResponse.getData().getLeadTime());
-                            mTxtDeliveryType.setText("D type : " + userTypeResponse.getData().getStrDeliveryLocation());
+
+                            if(userTypeResponse.getData().getDeliveryTypeName()!=null){
+                                mTxtDeliveryType.setText("D type : " + userTypeResponse.getData().getDeliveryTypeName());
+                            }else
+                                mTxtDeliveryType.setText("D type : " + " NA ");
+
                             mTxtOtherDetails.setText("Other Details : " + userTypeResponse.getData().getOtherDetails());
+
+                            if (userTypeResponse.getData().getStock().equals("1")) {
+                                mTxtAddtocart.setText("Out Of Stock");
+                                mTxtAddtocart.setClickable(false);
+
+                            } else {
+                                mTxtAddtocart.setText("Add to Cart");
+                                mTxtAddtocart.setClickable(true);
+                            }
+
 
                         } else {
                         }
@@ -247,7 +262,7 @@ public class BuyProductDetailsActivity extends AppCompatActivity implements View
 
                 break;
             case R.id.TxtAddEnqiry:
-                BuyProductInquiryDialog productInquiryDialog = new BuyProductInquiryDialog(this, mSellProductResponseData.getSellProductId(), mSellProductResponseData.getUserId(),mSellProductResponseData);
+                BuyProductInquiryDialog productInquiryDialog = new BuyProductInquiryDialog(this, mSellProductResponseData.getSellProductId(), mSellProductResponseData.getUserId(), mSellProductResponseData);
                 productInquiryDialog.show();
                 break;
         }

@@ -66,7 +66,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtExpectedPrice"
-                android:layout_marginLeft="@dimen/margin5dp"
                 android:gravity="right"
                 android:padding="@dimen/margin5dp"
                 android:text="Total Price : 81" />
@@ -160,6 +159,20 @@
                 android:padding="@dimen/margin5dp"
                 android:text="unpolishes, Bold in Size ,clean andsortex" />
 
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtLeadDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtProductDescription"
+                android:padding="@dimen/margin5dp"
+                android:text="Lead Time : " />
+            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
+                android:id="@+id/TxtOtherDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtLeadDay"
+                android:padding="@dimen/margin5dp"
+                android:text="Other Details  : Need 50% payment advance Need 50% payment advance Need 50% payment advance" />
 
         </RelativeLayout>
 
@@ -191,48 +204,32 @@
                 android:id="@+id/TxtState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TXtd"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="@dimen/margin5dp"
-                android:layout_toRightOf="@+id/TxtDeliveryLocation"
+                android:layout_below="@+id/TxtDeliveryLocation"
                 android:gravity="right"
                 android:padding="@dimen/margin5dp"
                 android:text="Maharastra " />
 
-            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
-                android:id="@+id/TxtLeadDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtDeliveryLocation"
-                android:padding="@dimen/margin5dp"
-                android:text="Lead Time : " />
+
 
             <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
                 android:id="@+id/TxtDeliveryType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtDeliveryLocation"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/margin5dp"
-                android:layout_toRightOf="@+id/TxtLeadDay"
+                android:layout_below="@+id/TxtDeliveryLocation"
+                android:layout_toRightOf="@+id/TxtDeliveryLocation"
                 android:gravity="right"
                 android:padding="@dimen/margin5dp"
                 android:text="Delivery Type : Pick Only" />
 
-            <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
-                android:id="@+id/TxtOtherDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtDeliveryType"
-                android:padding="@dimen/margin5dp"
-                android:text="Other Details  : Need 50% payment advance Need 50% payment advance Need 50% payment advance" />
 
             <com.everlastingseo.organicpandit.utils.font.CustomNormalTextView
                 android:id="@+id/TxtAddtocart"
 
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@+id/TxtOtherDetails"
+                android:layout_below="@+id/TxtDeliveryType"
                 android:layout_marginTop="@dimen/margin_30dp"
                 android:background="@color/colorAccent"
                 android:gravity="center"

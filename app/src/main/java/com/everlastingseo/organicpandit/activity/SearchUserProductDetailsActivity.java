@@ -141,7 +141,11 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             mTXtName.setText(userTypeResponse.getData().getFullname() + " ( " + userTypeResponse.getData().getUsername() + " ) ");
                             mTxtCeoName.setText("CEO : " + userTypeResponse.getData().getCeoName());
                             mTxtOrgnisationName.setText("Company : " + userTypeResponse.getData().getOrganizationName());
+                          if(userTypeResponse.getData().getAgencyName()!=null)
                             mTXtCertificateAgencyName.setText("Agency : " + userTypeResponse.getData().getAgencyName());
+                          else
+                              mTXtCertificateAgencyName.setText("Agency : " +" NA ");
+
                             mTxtStory.setText("Story : " + userTypeResponse.getData().getStory());
 
                             if (userTypeResponse.getData().getUserProductList().size() > 0) {
@@ -152,7 +156,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
 
                             } else {
                                 mLinarProductDetail.setVisibility(View.GONE);
-                                mTXTMAINProductDetails.setText("Product Details - No RegistrationResponseDataData Available");
+                                mTXTMAINProductDetails.setText("Product Details - No Data Available");
                                 mRecycleviewProductDetails.setVisibility(View.GONE);
                             }
                             if (userTypeResponse.getData().getUserCropList().size() > 0) {
@@ -163,7 +167,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
 
                             } else {
                                 mLinearCropInspectionDetails.setVisibility(View.GONE);
-                                mTXTMAINCropInspectionDetails.setText("Crop Inspection Details - No RegistrationResponseDataData Available");
+                                mTXTMAINCropInspectionDetails.setText("Crop Inspection Details - Data Not Available");
                                 mRecycleviewCropInspectionDetails.setVisibility(View.GONE);
                             }
 
@@ -176,7 +180,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             } else {
                                 mLinearInputOrganicDetails.setVisibility(View.GONE);
 
-                                mTXTMAINInputOrganicDetails.setText("Input Organic Details - No RegistrationResponseDataData Available");
+                                mTXTMAINInputOrganicDetails.setText("Input Organic Details - Data Not Available");
                                 mRecycleviewInputOrganicDetails.setVisibility(View.GONE);
                             }
 
@@ -189,7 +193,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             } else {
 
                                 mLinearsoilDetails.setVisibility(View.GONE);
-                                mTxtMainSoilDetails.setText("Soil Details - No RegistrationResponseDataData Available");
+                                mTxtMainSoilDetails.setText("Soil Details - Data Not Available");
                                 mRecycleviewsoilDetails.setVisibility(View.GONE);
                             }
                             if (userTypeResponse.getData().getUserMicroList().size() > 0) {
@@ -201,7 +205,7 @@ public class SearchUserProductDetailsActivity extends AppCompatActivity {
                             } else {
 
                                 mLinearmicronutrientDetails.setVisibility(View.GONE);
-                                mTxtMainmicronutrientDetails.setText("Micro Nutrients Details - No RegistrationResponseDataData Available");
+                                mTxtMainmicronutrientDetails.setText("Micro Nutrients Details - Data Not Available");
                                 mRecycleviewmicronutrientDetails.setVisibility(View.GONE);
                             }
 

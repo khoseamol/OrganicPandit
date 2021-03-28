@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/TxtTitle"
             android:layout_marginTop="@dimen/margin5dp"
-            android:textColorHint="@color/white">
+            android:textColorHint="@color/black">
 
             <com.everlastingseo.organicpandit.utils.font.CustomNormalEditText
                 android:id="@+id/EditOTP"

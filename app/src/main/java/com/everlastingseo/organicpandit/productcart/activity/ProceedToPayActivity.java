@@ -135,7 +135,7 @@ public class ProceedToPayActivity extends AppCompatActivity implements View.OnCl
             case R.id.BtnConfirmPay:
                 if (mCheckboxAddress.isChecked()) {
                     ResponsePrepareForPaymentGateway loginResponse = new ResponsePrepareForPaymentGateway();
-                    loginResponse = (ResponsePrepareForPaymentGateway) this.getIntent().getSerializableExtra("RegistrationResponseDataData");
+                    loginResponse = (ResponsePrepareForPaymentGateway) this.getIntent().getSerializableExtra("Data");
 
                     Intent intentProceed = new Intent(ProceedToPayActivity.this, PWECouponsActivity.class);
                     intentProceed.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); // This is mandatory flag

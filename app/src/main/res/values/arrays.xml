@@ -22,6 +22,11 @@
         <item>ORGANIC INPUT</item>
 
     </string-array>
+    <string-array name="dummyStateArray">
+        <item>Select State</item>
+
+    </string-array>
+
     <string-array name="usertype">
         <item>Select User Type</item>
         <item>Farmer</item>

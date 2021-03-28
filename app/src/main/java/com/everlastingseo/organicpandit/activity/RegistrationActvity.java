@@ -35,9 +35,7 @@ import com.everlastingseo.organicpandit.pojo.citylist.CityData;
 import com.everlastingseo.organicpandit.pojo.citylist.CityRespose;
 import com.everlastingseo.organicpandit.pojo.contrylist.CountryData;
 import com.everlastingseo.organicpandit.pojo.contrylist.CountryResponse;
-import com.everlastingseo.organicpandit.pojo.login.LoginResponse;
 import com.everlastingseo.organicpandit.pojo.otp.OTPResponse;
-import com.everlastingseo.organicpandit.pojo.preparepaymentgatway.ResponsePrepareForPaymentGateway;
 import com.everlastingseo.organicpandit.pojo.registrationpojo.RegistrationResponse;
 import com.everlastingseo.organicpandit.pojo.statelist.StateData;
 import com.everlastingseo.organicpandit.pojo.statelist.StateResponse;
@@ -62,28 +60,11 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
     List<CityData> cityDataList = new ArrayList<>();
     List<AgencyData> agencyData = new ArrayList<>();
     String contryID = "";
+    TextView mTxtCertificationValue;
     String stateID = "";
     String cityID = "";
     String agencyID = "";
     RelativeLayout mRelativeSelectCertificate;
-    AdapterView.OnItemSelectedListener listenerState = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            if (stateDataList.size() > 0) {
-
-                callCityList(stateDataList.get(position).getId());
-
-                stateID = stateDataList.get(position).getId();
-            } else {
-
-            }
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-    };
     AdapterView.OnItemSelectedListener listenerCity = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -120,6 +101,33 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
         }
     };
+    ProgressDialog progressDialog;
+    AdapterView.OnItemSelectedListener listenerState = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            if (stateDataList.size() > 0) {
+
+                if (stateDataList.get(position).getName().equals("Select State")) {
+                    String[] arrCity = {"Select City"};
+
+                    ArrayAdapter<String> adapterCity = new ArrayAdapter<String>(mContext, R.layout.spiner_item, arrCity);
+                    adapterCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    mSpinnerSelectCity.setAdapter(adapterCity);
+                } else {
+                    callCityList(stateDataList.get(position).getId());
+                }
+
+                stateID = stateDataList.get(position).getId();
+            } else {
+
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
     Button mBtnSignup;
     private EditText mEditFullname;
     private EditText mEditUserName;
@@ -135,7 +143,12 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             if (countryDataList.size() > 0) {
 
-                callStateList(countryDataList.get(position).getId());
+                if (countryDataList.get(position).getName().equals("Select Country")) {
+
+                } else {
+                    callStateList(countryDataList.get(position).getId());
+
+                }
                 contryID = countryDataList.get(position).getId();
             } else {
 
@@ -161,7 +174,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
         mContext = RegistrationActvity.this;
         apiService = ApiClient.getClient(getApplicationContext())
                 .create(ApiService.class);
-
+        progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
 
         mTxtAlreadyLogin = (TextView) findViewById(R.id.TxtAlreadyLogin);
         mTxtTitleName = (TextView) findViewById(R.id.TxtTitleName);
@@ -179,6 +192,8 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
         mRelativeSelectCertificate = (RelativeLayout) findViewById(R.id.RelativeSelectCertificate);
         mBtnSignup = (Button) findViewById(R.id.BtnSignup);
 
+        mTxtCertificationValue = (TextView) findViewById(R.id.TxtCertificationValue);
+
         mRelativeSelectCertificate.setOnClickListener(this);
         mSpinnerSelectCountry.setOnItemSelectedListener(listener);
         mSpinnerSelectState.setOnItemSelectedListener(listenerState);
@@ -186,17 +201,28 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
         mSpinnerSelectAgency.setOnItemSelectedListener(listenerAgency);
         mBtnSignup.setOnClickListener(this);
 
+        String[] arrState = {"Select State"};
+        ArrayAdapter<String> adapterState = new ArrayAdapter<String>(mContext, R.layout.spiner_item, arrState);
+        adapterState.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinnerSelectState.setAdapter(adapterState);
+
+        String[] arrCity = {"Select City"};
+
+        ArrayAdapter<String> adapterCity = new ArrayAdapter<String>(mContext, R.layout.spiner_item, arrCity);
+        adapterCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinnerSelectCity.setAdapter(adapterCity);
 
         callContryList();
         getAgencyList();
         mTxtTitleName.setText(getIntent().getStringExtra("TitleName") + "  Registration");
         mTxtAlreadyLogin.setOnClickListener(this);
 
+
     }
 
     private void callCityList(String id) {
 //        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
-//        progressDialog.show();
+        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -204,7 +230,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -219,7 +245,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                     @Override
                     public void onError(Throwable e) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -227,7 +253,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
     private void callStateList(String id) {
 //        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
-//        progressDialog.show();
+        progressDialog.show();
 
         apiService.getstateList(id)
                 .subscribeOn(Schedulers.io())
@@ -235,7 +261,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                 .subscribeWith(new DisposableSingleObserver<StateResponse>() {
                     @Override
                     public void onSuccess(StateResponse userTypeResponse) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             stateDataList.clear();
                             stateDataList = userTypeResponse.getData();
@@ -250,7 +276,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                     @Override
                     public void onError(Throwable e) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
@@ -258,7 +284,6 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
     }
 
     private void callContryList() {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(RegistrationActvity.this);
         progressDialog.show();
 
         apiService.getContryList()
@@ -439,7 +464,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                             TextView mTxtMobilenumberText = (TextView) dialog.findViewById(R.id.TxtMobilenumberText);
                             mTxtMobilenumberText.setText("The OTP has been sent to" + mask);
-                            ImageView mImgclose=dialog.findViewById(R.id.Imgclose);
+                            ImageView mImgclose = dialog.findViewById(R.id.Imgclose);
                             mImgclose.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -447,21 +472,21 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
                                 }
                             });
                             final EditText EditOTP = (EditText) dialog.findViewById(R.id.EditOTP);
-                            Button mbtnOTPSumbmit=(Button)dialog.findViewById(R.id.btnOTPSumbmit);
+                            Button mbtnOTPSumbmit = (Button) dialog.findViewById(R.id.btnOTPSumbmit);
                             mbtnOTPSumbmit.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                  if(TextUtils.isEmpty(EditOTP.getText().toString().trim())){
-                                      EditOTP.setError("Enter OTP");
-                                  }else {
-                                      callOTPVerificationAPI(EditOTP.getText().toString().trim(), mobile, userTypeResponse.getData().getUserId().toString());
+                                    if (TextUtils.isEmpty(EditOTP.getText().toString().trim())) {
+                                        EditOTP.setError("Enter OTP");
+                                    } else {
+                                        callOTPVerificationAPI(EditOTP.getText().toString().trim(), mobile, userTypeResponse.getData().getUserId().toString());
 
-                                  }
+                                    }
 
                                 }
                             });
 
-                               dialog.show();
+                            dialog.show();
 
 
                         } else {
@@ -521,7 +546,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                         if (loginResponse != null) {
 
-                            if(loginResponse.getResponse().getData().getSuccess()){
+                            if (loginResponse.getResponse().getData().getSuccess()) {
                                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
                                 alertDialogBuilder.setMessage(loginResponse.getResponse().getData().getMessage());
                                 alertDialogBuilder.setTitle("");
@@ -539,7 +564,7 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                                 AlertDialog alertDialog = alertDialogBuilder.create();
                                 alertDialog.show();
-                            }else {
+                            } else {
                                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
                                 alertDialogBuilder.setMessage(loginResponse.getResponse().getData().getMessage());
                                 alertDialogBuilder.setTitle("");
@@ -704,7 +729,9 @@ public class RegistrationActvity extends AppCompatActivity implements View.OnCli
 
                 if (selectCertificateLists.size() > 0) {
                     dialog.dismiss();
+                    mTxtCertificationValue.setText("TRUE");
                 } else {
+                    mTxtCertificationValue.setText(" ");
                     ApplicationConstatnt.getDialog(mContext, " ", "Select Certifications");
                 }
             }

@@ -6,6 +6,18 @@ import com.google.gson.annotations.SerializedName;
 public class SellproductDetailsResponseData {
 
 
+    public String getState_name() {
+        return state_name;
+    }
+
+    public void setState_name(String state_name) {
+        this.state_name = state_name;
+    }
+
+    @SerializedName("state_name")
+    @Expose
+    private String state_name;
+
     @SerializedName("sell_product_id")
     @Expose
     private String sellProductId;
@@ -93,9 +105,6 @@ public class SellproductDetailsResponseData {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
-    @SerializedName("sell_product_certification_id")
-    @Expose
-    private String sellProductCertificationId;
     @SerializedName("sell_product_image_id")
     @Expose
     private String sellProductImageId;
@@ -213,6 +222,15 @@ public class SellproductDetailsResponseData {
     @SerializedName("is_verified")
     @Expose
     private String isVerified;
+    @SerializedName("otp")
+    @Expose
+    private String otp;
+    @SerializedName("is_validate_otp")
+    @Expose
+    private String isValidateOtp;
+    @SerializedName("is_subscription")
+    @Expose
+    private String isSubscription;
     @SerializedName("status")
     @Expose
     private String status;
@@ -222,6 +240,9 @@ public class SellproductDetailsResponseData {
     @SerializedName("is_deleted")
     @Expose
     private String isDeleted;
+    @SerializedName("is_subscription_expire")
+    @Expose
+    private String isSubscriptionExpire;
     @SerializedName("product_name")
     @Expose
     private String productName;
@@ -231,15 +252,18 @@ public class SellproductDetailsResponseData {
     @SerializedName("city_name")
     @Expose
     private String cityName;
-    @SerializedName("state_name")
-    @Expose
-    private String stateName;
     @SerializedName("certificaton_agency_name")
     @Expose
     private String certificatonAgencyName;
-    @SerializedName("strDeliveryLocation")
+    @SerializedName("delivery_location_name")
     @Expose
-    private String strDeliveryLocation;
+    private String deliveryLocationName;
+    @SerializedName("delivery_type_name")
+    @Expose
+    private String deliveryTypeName;
+    @SerializedName("certification_name")
+    @Expose
+    private String certificationName;
 
     public String getSellProductId() {
         return sellProductId;
@@ -471,14 +495,6 @@ public class SellproductDetailsResponseData {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public String getSellProductCertificationId() {
-        return sellProductCertificationId;
-    }
-
-    public void setSellProductCertificationId(String sellProductCertificationId) {
-        this.sellProductCertificationId = sellProductCertificationId;
     }
 
     public String getSellProductImageId() {
@@ -793,6 +809,30 @@ public class SellproductDetailsResponseData {
         this.isVerified = isVerified;
     }
 
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public String getIsValidateOtp() {
+        return isValidateOtp;
+    }
+
+    public void setIsValidateOtp(String isValidateOtp) {
+        this.isValidateOtp = isValidateOtp;
+    }
+
+    public String getIsSubscription() {
+        return isSubscription;
+    }
+
+    public void setIsSubscription(String isSubscription) {
+        this.isSubscription = isSubscription;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -815,6 +855,14 @@ public class SellproductDetailsResponseData {
 
     public void setIsDeleted(String isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public String getIsSubscriptionExpire() {
+        return isSubscriptionExpire;
+    }
+
+    public void setIsSubscriptionExpire(String isSubscriptionExpire) {
+        this.isSubscriptionExpire = isSubscriptionExpire;
     }
 
     public String getProductName() {
@@ -841,14 +889,6 @@ public class SellproductDetailsResponseData {
         this.cityName = cityName;
     }
 
-    public String getStateName() {
-        return stateName;
-    }
-
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
-
     public String getCertificatonAgencyName() {
         return certificatonAgencyName;
     }
@@ -857,11 +897,28 @@ public class SellproductDetailsResponseData {
         this.certificatonAgencyName = certificatonAgencyName;
     }
 
-    public String getStrDeliveryLocation() {
-        return strDeliveryLocation;
+    public String getDeliveryLocationName() {
+        return deliveryLocationName;
     }
 
-    public void setStrDeliveryLocation(String strDeliveryLocation) {
-        this.strDeliveryLocation = strDeliveryLocation;
+    public void setDeliveryLocationName(String deliveryLocationName) {
+        this.deliveryLocationName = deliveryLocationName;
     }
+
+    public String getDeliveryTypeName() {
+        return deliveryTypeName;
+    }
+
+    public void setDeliveryTypeName(String deliveryTypeName) {
+        this.deliveryTypeName = deliveryTypeName;
+    }
+
+    public String getCertificationName() {
+        return certificationName;
+    }
+
+    public void setCertificationName(String certificationName) {
+        this.certificationName = certificationName;
+    }
+
 }

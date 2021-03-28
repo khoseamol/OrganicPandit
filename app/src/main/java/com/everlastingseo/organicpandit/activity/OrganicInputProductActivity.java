@@ -47,6 +47,7 @@ public class OrganicInputProductActivity extends AppCompatActivity {
     RelativeLayout mRelativeToop;
     TextView mTxtName, mTxtTotalProduct,mTxtEmpty;
     Vibrator vibrator;
+    ProgressDialog progressDialog;
     AppDao appDao;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,6 +77,7 @@ public class OrganicInputProductActivity extends AppCompatActivity {
 
 
         mRelativeToop.setVisibility(View.VISIBLE);
+        progressDialog = CustomProgressDialog.ctor(OrganicInputProductActivity.this);
 
         callOrganicData(getIntent().getStringExtra("USERID"));
     }

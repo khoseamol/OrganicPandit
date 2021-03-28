@@ -94,7 +94,7 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
             return false;
         return pat.matcher(email).matches();
     }
-
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,6 +115,7 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         setTitle("Add Address");
+         progressDialog = CustomProgressDialog.ctor(DeliveryAddressActivity.this);
 
         mEditName = (EditText) findViewById(R.id.EditName);
         mEditPincode = (EditText) findViewById(R.id.EditPincode);
@@ -134,7 +135,7 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
 
     private void callCityList(String id) {
 //        final ProgressDialog progressDialog = CustomProgressDialog.ctor(DeliveryAddressActivity.this);
-//        progressDialog.show();
+        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -142,7 +143,7 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -157,14 +158,13 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
 
                     @Override
                     public void onError(Throwable e) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void callStateList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(DeliveryAddressActivity.this);
         progressDialog.show();
 
         apiService.getstateList(id)

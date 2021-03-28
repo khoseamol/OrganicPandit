@@ -50,7 +50,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BuyProductMainActvity extends AppCompatActivity implements PaginationAdapterCallback {
+public class
+BuyProductMainActvity extends AppCompatActivity implements PaginationAdapterCallback {
 
     private static final String TAG = "BuyProductMainActvity";
     private static final int PAGE_START = 1;
@@ -123,6 +124,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
 
         }
     };
+     ProgressDialog progressDialog;
     private int TOTAL_PAGES = 1;
     private boolean isLoading = false;
     private boolean isLastPage = false;
@@ -226,6 +228,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                 doRefresh();
             }
         });
+progressDialog = CustomProgressDialog.ctor(BuyProductMainActvity.this);
 
 
         mSpinnerSelectCategory = (SearchableSpinner) findViewById(R.id.SpinnerSelectCategory);
@@ -254,7 +257,12 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
     }
 
     private void doRefresh() {
-        progressBar.setVisibility(View.VISIBLE);
+       if(progressDialog.isShowing()){
+           progressBar.setVisibility(View.GONE);
+       }else
+           progressBar.setVisibility(View.VISIBLE);
+
+
         if (callTopRatedMoviesApi().isExecuted())
             callTopRatedMoviesApi().cancel();
 
@@ -287,7 +295,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                         else isLastPage = true;
                     } else {
                         adapter.removeLoadingFooter();
-//                        Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
 
                     }
                 } catch (Exception e) {
@@ -314,7 +322,12 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
         Log.d(TAG, "loadFirstPage: ");
         hideErrorView();
         currentPage = PAGE_START;
-        progressBar.setVisibility(View.VISIBLE);
+        if(progressDialog.isShowing()){
+            progressBar.setVisibility(View.GONE);
+        }else
+            progressBar.setVisibility(View.VISIBLE);
+
+
         callTopRatedMoviesApi().enqueue(new Callback<SellProductResponse>() {
             @Override
             public void onResponse(Call<SellProductResponse> call, Response<SellProductResponse> response) {
@@ -329,8 +342,9 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                     if (currentPage <= TOTAL_PAGES) adapter.addLoadingFooter();
                     else isLastPage = true;
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
                 }
+
             }
 
             @Override
@@ -390,7 +404,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
 
     private void callCityList(String id) {
 //        final ProgressDialog progressDialog = CustomProgressDialog.ctor(BuyProductMainActvity.this);
-//        progressDialog.show();
+        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -398,7 +412,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -413,14 +427,13 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
 
                     @Override
                     public void onError(Throwable e) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void callStateList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(BuyProductMainActvity.this);
         progressDialog.show();
 
         apiService.getstateList(id)
@@ -429,7 +442,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
                 .subscribeWith(new DisposableSingleObserver<StateResponse>() {
                     @Override
                     public void onSuccess(StateResponse userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             stateDataList.clear();
                             stateDataList = userTypeResponse.getData();
@@ -484,6 +497,7 @@ public class BuyProductMainActvity extends AppCompatActivity implements Paginati
     }
 
     private void callProduct() {
+
         final ProgressDialog progressDialog = CustomProgressDialog.ctor(BuyProductMainActvity.this);
         progressDialog.show();
 

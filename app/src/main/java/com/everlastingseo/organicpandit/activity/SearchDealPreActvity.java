@@ -80,6 +80,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
 
         }
     };
+    ProgressDialog progressDialog;
     private int TOTAL_PAGES = 1;
     private boolean isLoading = false;
     private boolean isLastPage = false;
@@ -128,7 +129,10 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         setTitle("Search Post");
-        rv = findViewById(R.id.main_recycler);
+
+        progressDialog = CustomProgressDialog.ctor(SearchDealPreActvity.this);
+
+                rv = findViewById(R.id.main_recycler);
         progressBar = findViewById(R.id.main_progress);
         errorLayout = findViewById(R.id.error_layout);
         btnRetry = findViewById(R.id.error_btn_retry);
@@ -205,6 +209,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
         });
         mSpinnerSelectState.setOnItemSelectedListener(listener);
         mSpinnerSelectCity.setOnItemSelectedListener(listenerCity);
+        doRefresh();
     }
 
     private void doRefresh() {
@@ -240,10 +245,10 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
                         else isLastPage = true;
                     } else {
                         adapter.removeLoadingFooter();
-                        Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext, "DataData Not Found", Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -263,9 +268,14 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
 
     private void loadFirstPage() {
         Log.d(TAG, "loadFirstPage: ");
+
+        if(progressDialog.isShowing()){
+            progressBar.setVisibility(View.GONE);
+        }else
+            progressBar.setVisibility(View.VISIBLE);
+
         hideErrorView();
         currentPage = PAGE_START;
-        progressBar.setVisibility(View.VISIBLE);
         callTopRatedMoviesApi().enqueue(new Callback<PostReqirmentResponse>() {
             @Override
             public void onResponse(Call<PostReqirmentResponse> call, Response<PostReqirmentResponse> response) {
@@ -275,12 +285,12 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
                 try {
                     TOTAL_PAGES = Integer.parseInt(response.body().getTotal_page());
                     List<PostRequirmentData> results = fetchResults(response);
-                     adapter.addAll(results);
+                    adapter.addAll(results);
 
                     if (currentPage <= TOTAL_PAGES) adapter.addLoadingFooter();
                     else isLastPage = true;
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "RegistrationResponseDataData Not Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Data Not Found", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -310,7 +320,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
 
     private void callCityList(String id) {
 //        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchDealPreActvity.this);
-//        progressDialog.show();
+        progressDialog.show();
 
         apiService.getcities(id)
                 .subscribeOn(Schedulers.io())
@@ -318,7 +328,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
                 .subscribeWith(new DisposableSingleObserver<CityRespose>() {
                     @Override
                     public void onSuccess(CityRespose userTypeResponse) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             cityDataList.clear();
                             cityDataList = userTypeResponse.getData();
@@ -333,14 +343,13 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
 
                     @Override
                     public void onError(Throwable e) {
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void callStateList(String id) {
-        final ProgressDialog progressDialog = CustomProgressDialog.ctor(SearchDealPreActvity.this);
         progressDialog.show();
 
         apiService.getstateList(id)
@@ -349,7 +358,7 @@ public class SearchDealPreActvity extends AppCompatActivity implements Paginatio
                 .subscribeWith(new DisposableSingleObserver<StateResponse>() {
                     @Override
                     public void onSuccess(StateResponse userTypeResponse) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         if (userTypeResponse.getSuccess()) {
                             stateDataList.clear();
                             stateDataList = userTypeResponse.getData();

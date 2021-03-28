@@ -44,11 +44,21 @@ public class ShopDataAdapter extends RecyclerView.Adapter<ShopDataAdapter.ViewHo
         holder.mTxtPrice.setText("Price : " + mContext.getResources().getString(R.string.Rs) + " " + data.get(position).getPrice());
         holder.mTxtFullName.setText("Name : " + data.get(position).getFullname());
         holder.mTxtFinalRemarks.setText("Remark : " + data.get(position).getDescription());
-        holder.mTxtStock.setText("Stock : " + data.get(position).getStock());
+        if(data.get(position).getStock().equals("1"))
+        holder.mTxtStock.setText("Out of Stock");
+        else
+         holder.mTxtStock.setText("In Stock");
+
         holder.mTXtAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getClick.getclickedEvent(data.get(position));
+                if(data.get(position).getStock().equals("1"))
+                    ApplicationConstatnt.getDialog(mContext,"","Out of stock");
+                else
+                    getClick.getclickedEvent(data.get(position));
+
+
+
             }
         });
 
